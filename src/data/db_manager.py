@@ -24,7 +24,7 @@ from src.system.logs import logger
 from src.data.models.session import Session as ChatSession
 from src.data.models.user import User
 from src.data.models.thread import Thread
-from src.data.models.order import Order
+from src.data.models.order import OrderRecord
 from src.data.models.ticket import Ticket
 from src.data.models.knowledge import KnowledgeDocument
 
