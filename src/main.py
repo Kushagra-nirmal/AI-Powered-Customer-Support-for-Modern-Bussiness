@@ -132,8 +132,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Include API router
-app.include_router(api_router, prefix=settings.API_V1_STR)
+# Include API router at both /api/v1 and /api so all frontend requests resolve seamlessly
+app.include_router(api_router, prefix="/api/v1")
+app.include_router(api_router, prefix="/api")
 
 # Static files directory
 _static_dir = os.path.join(os.path.dirname(__file__), "static")
