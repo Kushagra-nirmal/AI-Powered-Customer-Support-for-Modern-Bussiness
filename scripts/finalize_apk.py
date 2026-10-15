@@ -36,7 +36,8 @@ def finalize():
         "creator": "Nirmal Sharma",
         "version": "1.0.0",
         "package": "com.supportai.jarvis",
-        "serverUrl": "https://upper-closure-affecting-ink.trycloudflare.com",
+        "serverUrl": "https://supportai-jarvis-production.up.railway.app",
+        "cloudUrl": "https://supportai-jarvis-production.up.railway.app",
         "localUrl": "http://127.0.0.1:8000",
         "lanUrl": "http://192.168.1.20:8000",
         "capabilities": [
