@@ -1,0 +1,43 @@
+services:
+  - type: web
+    name: supportai-customer-support
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /health
+    envVars:
+      - key: APP_ENV
+        value: production
+      - key: HOST
+        value: 0.0.0.0
+      - key: PROJECT_NAME
+        value: SupportAI Customer Support
+      - key: DEBUG
+        value: "false"
+      - key: LOG_FORMAT
+        value: json
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ENABLE_LONG_TERM_MEMORY
+        value: "false"
+      - key: POSTGRES_HOST
+        sync: false
+      - key: POSTGRES_PORT
+        value: "5432"
+      - key: POSTGRES_DB
+        value: postgres
+      - key: POSTGRES_USER
+        sync: false
+      - key: POSTGRES_PASSWORD
+        sync: false
+      - key: POSTGRES_POOL_SIZE
+        value: "2"
+      - key: POSTGRES_MAX_OVERFLOW
+        value: "1"
+      - key: DEFAULT_LLM_MODEL
+        value: gemini-3.8-flash

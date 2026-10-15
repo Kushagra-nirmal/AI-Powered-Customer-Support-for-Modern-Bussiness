@@ -1,0 +1,70 @@
+{
+  "id": "/?source=pwa",
+  "name": "SupportAI & JARVIS — Production Multimodal Agentic AI",
+  "short_name": "SupportAI",
+  "description": "Production-Grade Multimodal Agentic AI Customer Support System with Real-Time Tools, Universal Logistics, and JARVIS Voice.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#090d16",
+  "theme_color": "#090d16",
+  "lang": "en",
+  "dir": "ltr",
+  "prefer_related_applications": false,
+  "categories": [
+    "productivity",
+    "business",
+    "utilities"
+  ],
+  "icons": [
+    {
+      "src": "/static/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/static/icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Chat Assistant",
+      "short_name": "Chat",
+      "description": "Open customer support conversational assistant",
+      "url": "/#chat",
+      "icons": [{ "src": "/static/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "AI Image Studio",
+      "short_name": "Studio",
+      "description": "Generate 8K AI artwork & optimize prompts",
+      "url": "/#studio",
+      "icons": [{ "src": "/static/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Support Tickets",
+      "short_name": "Tickets",
+      "description": "View and manage support tickets",
+      "url": "/#tickets",
+      "icons": [{ "src": "/static/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Admin Dashboard",
+      "short_name": "Admin",
+      "description": "Access system health, analytics, and queues",
+      "url": "/#admin",
+      "icons": [{ "src": "/static/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}
