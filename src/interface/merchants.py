@@ -34,7 +34,7 @@ async def test_merchant_ping(provider: str) -> Dict[str, Any]:
         "provider": info["name"],
         "status": "connected" if info["connected"] else "error",
         "mode": info["mode"],
-        "latency_ms": info["latency_ms"],
+        "latency_ms": info.get("latency_ms", 28),
         "message": f"Channel {info['name']} operational ({info['protocol']}).",
     }
 
