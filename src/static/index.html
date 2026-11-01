@@ -7,7 +7,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>SupportAI & JARVIS — Production Grade Multimodal Agentic AI</title>
+  <title>Production Grade Agentic System</title>
   <link rel="manifest" href="/static/manifest.json">
   <link rel="icon" type="image/png" sizes="192x192" href="/static/icon-192.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/static/icon-192.png">
@@ -76,6 +76,81 @@
     button, input, textarea, select { font-family: inherit; }
     button { cursor: pointer; border: none; outline: none; transition: all 0.2s ease; }
     a { text-decoration: none; color: inherit; }
+
+    /* Production Grade Agentic System landing refresh */
+    #landing-view {
+      background: radial-gradient(ellipse at 78% 18%, rgba(56, 189, 248, .17), transparent 35%),
+                  radial-gradient(ellipse at 18% 76%, rgba(99, 102, 241, .17), transparent 38%),
+                  linear-gradient(145deg, #070b16 0%, #0b1222 52%, #11132b 100%);
+    }
+    .land-nav {
+      max-width: 1380px;
+      height: 82px;
+      padding: 0 clamp(20px, 4vw, 58px);
+      border-bottom-color: rgba(148, 163, 184, .13);
+      backdrop-filter: blur(18px);
+    }
+    .brand-logo { font-size: clamp(15px, 1.45vw, 19px); letter-spacing: -.65px; }
+    .brand-icon {
+      width: 40px; height: 40px; border-radius: 13px;
+      background: linear-gradient(145deg, #22d3ee, #6366f1 60%, #a855f7);
+      box-shadow: 0 8px 28px rgba(34, 211, 238, .24);
+    }
+    .land-nav-links { gap: clamp(16px, 2.2vw, 30px); }
+    .land-nav-links a { font-size: 13px; color: #a4b2c8; }
+    .btn-primary-pill, .btn-hero-cta {
+      background: linear-gradient(110deg, #0891b2, #4f46e5 75%, #7c3aed);
+      box-shadow: 0 10px 30px rgba(79, 70, 229, .28);
+    }
+    .hero-container {
+      max-width: 1380px;
+      padding: clamp(58px, 9vh, 112px) clamp(24px, 6vw, 84px) clamp(64px, 9vh, 110px);
+      grid-template-columns: minmax(0, 1.08fr) minmax(340px, .92fr);
+      gap: clamp(34px, 6vw, 90px);
+    }
+    .hero-content::before {
+      content: 'RELIABLE AI · BUILT FOR PRODUCTION';
+      display: inline-flex; align-items: center; gap: 9px;
+      margin-bottom: 22px; padding: 8px 12px; border-radius: 999px;
+      color: #a5f3fc; background: rgba(8, 145, 178, .11);
+      border: 1px solid rgba(103, 232, 249, .22);
+      font: 700 10px/1 var(--font-code); letter-spacing: 1px;
+    }
+    .hero-title {
+      max-width: 760px; font-size: clamp(46px, 6.1vw, 78px);
+      line-height: 1.02; letter-spacing: -3.6px; margin: 0 0 24px;
+    }
+    .hero-title span.gradient-text {
+      background-image: linear-gradient(105deg, #67e8f9 5%, #818cf8 52%, #c084fc 100%);
+    }
+    .hero-subtitle { max-width: 590px; color: #a9b7cc; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.75; }
+    .hero-actions { flex-wrap: wrap; gap: 12px; margin-bottom: 46px; }
+    .btn-hero-cta, .btn-hero-demo { min-height: 48px; border-radius: 13px; padding-inline: 20px; }
+    .hero-stats { max-width: 650px; gap: 14px; border-top-color: rgba(148, 163, 184, .16); }
+    .stat-item { padding: 12px 14px; border: 1px solid rgba(148, 163, 184, .12); border-radius: 14px; background: rgba(15, 23, 42, .42); }
+    .stat-item h3 { color: #e0f2fe; font-size: 22px; }
+    .stat-item p { color: #91a2ba; }
+    .hero-visual { min-height: 480px; }
+    .robot-stage-card {
+      width: min(100%, 430px); height: min(56vh, 500px); min-height: 390px;
+      border-radius: 32px; border-color: rgba(148, 163, 184, .2);
+      background: radial-gradient(circle at 50% 35%, rgba(34, 211, 238, .16), rgba(30, 41, 59, .62) 46%, rgba(12, 18, 34, .92) 78%);
+      box-shadow: 0 36px 100px rgba(0, 0, 0, .45), inset 0 1px rgba(255,255,255,.08);
+    }
+    .floating-pill { border-color: rgba(103, 232, 249, .2); }
+    @media (max-width: 900px) {
+      .hero-container { grid-template-columns: 1fr; padding-top: 56px; gap: 24px; }
+      .hero-visual { min-height: 400px; }
+      .robot-stage-card { height: 390px; }
+    }
+    @media (max-width: 560px) {
+      .hero-title { font-size: clamp(42px, 12vw, 62px); letter-spacing: -2.5px; }
+      .hero-container { padding-inline: 20px; }
+      .hero-actions > * { width: 100%; justify-content: center; }
+      .hero-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero-visual { min-height: 350px; }
+      .robot-stage-card { min-height: 330px; height: 350px; }
+    }
 
     /* =========================================================
        1. LANDING PAGE VIEW (DARK THEME)
@@ -368,6 +443,162 @@
       max-height: 100vh;
       max-height: 100dvh;
       overflow: hidden;
+    }
+
+    /* Polished production workspace */
+    .chat-layout { grid-template-columns: 264px minmax(0, 1fr) 278px; background: #f5f7fb; }
+    .chat-sidebar, .chat-right-panel { background: #fff; }
+    .chat-sidebar { padding: 20px 15px; border-right-color: #e7edf5; }
+    .chat-sidebar-brand { letter-spacing: -.45px; }
+    .btn-new-chat { border-radius: 13px; min-height: 48px; background: linear-gradient(115deg,#2563eb,#4f46e5); box-shadow: 0 8px 18px rgba(37,99,235,.18); }
+    .menu-item { border-radius: 11px; margin: 2px 0; }
+    .chat-center { background: #f7f9fc; }
+    .chat-topbar { min-height: 78px; padding: 12px 24px; background: rgba(255,255,255,.94); border-bottom-color: #e6ebf2; backdrop-filter: blur(16px); }
+    .chat-stream { padding: clamp(24px,4vw,52px); background: radial-gradient(ellipse at 50% 0%,rgba(224,231,255,.3),transparent 52%); }
+    .msg-group.assistant { max-width: min(780px,94%); }
+    .msg-group.user { max-width: min(700px,88%); }
+    .msg-avatar { width: 38px; height: 38px; margin-top: 2px; color: #fff; background: linear-gradient(145deg,#0ea5e9,#4f46e5); box-shadow: 0 5px 14px rgba(79,70,229,.2); }
+    .msg-avatar img { display:none; }
+    .msg-avatar::after { content:'✦'; font-size:18px; font-weight:800; }
+    .msg-bubble { padding: 18px 21px; border-radius: 18px; font-size: 14px; line-height: 1.7; }
+    .msg-group.assistant .msg-bubble { border:1px solid #e6ebf2; border-top-left-radius:6px; box-shadow:0 10px 28px rgba(15,23,42,.045); }
+    .composer-container { background:rgba(255,255,255,.97); border-top:1px solid #e6ebf2; padding:12px clamp(18px,3vw,36px) 16px; }
+    .btn-quick-action { border-radius:999px; min-height:34px; }
+    .composer-box { border-radius:20px; box-shadow:0 8px 24px rgba(15,23,42,.07); }
+    .chat-right-panel { padding:24px 18px; border-left:1px solid #e7edf5; }
+    .btn-suggested-question { border-radius:12px; border-color:#e7edf5; padding:11px 12px; background:#f8fafc; transition:transform .18s,border-color .18s,background .18s; }
+    .btn-suggested-question:hover { transform:translateY(-1px); border-color:#bfdbfe; background:#eff6ff; }
+    .articles-list { display:grid; gap:5px; }
+    .article-item { display:block; padding:7px 9px; border-radius:8px; color:#52627a; text-decoration:none; }
+    .article-item:hover { color:#2563eb; background:#f1f5f9; }
+    .welcome-eyebrow { color:#4f46e5; font:700 10px/1 var(--font-code); letter-spacing:1.2px; margin-bottom:10px; }
+    .welcome-heading { margin:0 0 7px; color:#111827; font:800 clamp(20px,2.3vw,27px)/1.2 var(--font-display); letter-spacing:-.8px; }
+    .welcome-copy { margin:0 0 18px; color:#64748b; }
+    .welcome-capabilities { display:flex; flex-wrap:wrap; gap:8px; margin:0 0 20px; }
+    .welcome-capabilities span { padding:7px 10px; border:1px solid #e5eaf2; border-radius:9px; color:#475569; background:#f8fafc; font-size:12px; }
+    .welcome-guide-row { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:14px; border-top:1px solid #edf0f5; color:#64748b; font-size:12px; }
+    .welcome-guide-row button { color:#4f46e5; background:#eef2ff; border-radius:9px; padding:9px 12px; font-size:12px; font-weight:700; }
+    .welcome-guide-row button:hover { background:#e0e7ff; }
+    .assistant-avatar-mark { display:grid; width:100%;height:100%;place-items:center;color:white;font-size:19px;font-weight:800; }
+    .error-card { border-color:#fecaca !important; background:#fffafa !important; color:#7f1d1d !important; }
+    .error-card strong { display:block; margin-bottom:4px; }
+    .topbar-info p { color:#718096; }
+    /* Give mobile users a full, thumb-friendly message field above the tab bar. */
+    @media(max-width:700px) {
+      .composer-container {
+        padding: 10px 12px calc(70px + var(--sab));
+        gap: 8px;
+      }
+      .quick-tools-bar { margin: 0 auto 8px; }
+      .composer-box {
+        min-height: 58px;
+        padding: 8px 9px 8px 12px;
+        gap: 8px;
+        border-radius: 18px;
+        align-items: center;
+      }
+      .composer-input {
+        min-height: 38px;
+        max-height: 112px;
+        padding: 8px 2px;
+        font-size: 16px;
+        line-height: 1.45;
+      }
+      .btn-composer-icon { min-width: 34px; min-height: 38px; font-size: 18px; }
+      .btn-send { flex: 0 0 40px; width: 40px; height: 40px; }
+      .mobile-bottom-nav { height: calc(58px + var(--sab)); }
+    }
+    @media(max-width:1100px) { .chat-layout { grid-template-columns:238px minmax(0,1fr); } .chat-right-panel { display:none; } }
+    @media(max-width:700px) { .chat-layout { grid-template-columns:minmax(0,1fr); } .chat-sidebar { box-shadow:12px 0 36px rgba(15,23,42,.14); } .chat-topbar { min-height:66px;padding:9px 14px; } .chat-stream { padding:18px 12px; } .msg-group.assistant,.msg-group.user { max-width:96%; } .msg-bubble { padding:14px 15px; } .composer-container { padding:9px 10px calc(76px + var(--sab)); } .quick-tools-bar { gap:7px; } }
+    /* Keep the composer fully above the fixed app navigation on tablet and mobile. */
+    @media (max-width: 1024px) {
+      #chat-view .composer-container {
+        padding-bottom: calc(82px + var(--sab)) !important;
+        position: relative;
+        z-index: 95;
+      }
+      #chat-view .composer-box {
+        min-height: 62px;
+        border-radius: 18px;
+        padding: 8px 10px 8px 14px;
+      }
+      #chat-view .composer-input {
+        min-height: 40px;
+        font-size: 16px;
+        padding: 9px 3px;
+      }
+      #mobile-bottom-nav { z-index: 90; }
+    }
+
+    /* Chat workspace visual refresh */
+    .chat-layout {
+      grid-template-columns: 264px minmax(0, 1fr) 278px;
+      background: #f4f7fb;
+    }
+    .chat-sidebar, .chat-right-panel { background: #fff; }
+    .chat-sidebar { padding: 20px 15px; border-right-color: #e7edf5; }
+    .chat-sidebar-brand { letter-spacing: -.45px; }
+    .btn-new-chat {
+      border-radius: 13px; min-height: 48px;
+      background: linear-gradient(115deg, #2563eb, #4f46e5);
+      box-shadow: 0 8px 18px rgba(37, 99, 235, .18);
+    }
+    .menu-item { border-radius: 11px; margin: 2px 0; }
+    .chat-center { background: #f7f9fc; }
+    .chat-topbar {
+      min-height: 78px; padding: 12px 24px;
+      background: rgba(255,255,255,.92); border-bottom-color: #e6ebf2;
+      backdrop-filter: blur(16px);
+    }
+    .chat-stream {
+      padding: clamp(24px, 4vw, 52px);
+      background: radial-gradient(ellipse at 50% 0%, rgba(224, 231, 255, .3), transparent 52%);
+    }
+    .msg-group.assistant { max-width: min(780px, 94%); }
+    .msg-group.user { max-width: min(700px, 88%); }
+    .msg-avatar {
+      width: 38px; height: 38px; margin-top: 2px;
+      color: #fff; background: linear-gradient(145deg, #0ea5e9, #4f46e5);
+      box-shadow: 0 5px 14px rgba(79, 70, 229, .2);
+    }
+    .msg-avatar img { display: none; }
+    .msg-avatar::after { content: '✦'; font-size: 18px; font-weight: 800; }
+    .msg-bubble { padding: 18px 21px; border-radius: 18px; font-size: 14px; line-height: 1.7; }
+    .msg-group.assistant .msg-bubble {
+      border: 1px solid #e6ebf2; border-top-left-radius: 6px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, .045);
+    }
+    .msg-bubble ul { padding-left: 18px; }
+    .composer-container {
+      background: rgba(255,255,255,.96); border-top: 1px solid #e6ebf2;
+      padding: 12px clamp(18px, 3vw, 36px) 16px;
+    }
+    .btn-quick-action { border-radius: 999px; min-height: 34px; }
+    .composer-box { border-radius: 20px; box-shadow: 0 8px 24px rgba(15,23,42,.07); }
+    .chat-right-panel {
+      padding: 24px 18px; border-left: 1px solid #e7edf5;
+    }
+    .btn-suggested-question {
+      border-radius: 12px; border-color: #e7edf5; padding: 11px 12px;
+      background: #f8fafc; transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .btn-suggested-question:hover { transform: translateY(-1px); border-color: #bfdbfe; background: #eff6ff; }
+    .articles-list { display: grid; gap: 5px; }
+    .article-item { display: block; padding: 7px 9px; border-radius: 8px; color: #52627a; text-decoration: none; }
+    .article-item:hover { color: #2563eb; background: #f1f5f9; }
+    @media (max-width: 1100px) {
+      .chat-layout { grid-template-columns: 238px minmax(0, 1fr); }
+      .chat-right-panel { display: none; }
+    }
+    @media (max-width: 700px) {
+      .chat-layout { grid-template-columns: minmax(0, 1fr); }
+      .chat-sidebar { box-shadow: 12px 0 36px rgba(15,23,42,.14); }
+      .chat-topbar { min-height: 66px; padding: 9px 14px; }
+      .chat-stream { padding: 18px 12px; }
+      .msg-group.assistant, .msg-group.user { max-width: 96%; }
+      .msg-bubble { padding: 14px 15px; }
+      .composer-container { padding: 9px 10px calc(76px + var(--sab)); }
+      .quick-tools-bar { gap: 7px; }
     }
 
     /* Left Sidebar */
@@ -2311,6 +2542,24 @@
 
     /* 2. TABLETS & SMALL LAPTOPS (769px to 1024px) */
     @media (max-width: 1024px) {
+      /* Reserve the actual fixed tab-bar footprint in the chat flex layout. */
+      #chat-view .chat-center { padding-bottom: 0; }
+      #chat-view .composer-container {
+        padding-bottom: calc(92px + var(--sab)) !important;
+        position: relative;
+        z-index: 95;
+      }
+      #chat-view .composer-box {
+        min-height: 64px;
+        border-radius: 18px;
+        padding: 8px 10px 8px 14px;
+      }
+      #chat-view .composer-input {
+        min-height: 42px;
+        font-size: 16px;
+        padding: 9px 3px;
+      }
+      #mobile-bottom-nav { height: calc(64px + var(--sab)); z-index: 90; }
       .hero-container {
         grid-template-columns: 1fr;
         padding: 36px 24px;
@@ -2535,10 +2784,7 @@
       }
 
       /* Mobile Pinned Composer Ratio */
-      .composer-container {
-        padding: 8px 10px calc(58px + var(--sab) + 4px);
-        background: #ffffff;
-      }
+      .composer-container { padding: 8px 10px calc(92px + var(--sab)) !important; background:#fff; }
       .quick-tools-bar {
         margin-bottom: 6px;
         gap: 6px;
@@ -2548,21 +2794,16 @@
         padding: 4px 9px;
         font-size: 11px;
       }
-      .composer-box {
-        padding: 4px 6px 4px 12px;
-        gap: 6px;
-      }
+      .composer-box { min-height:64px; padding:8px 10px 8px 12px; gap:8px; border-radius:17px; }
       .composer-input {
-        font-size: 15px; /* Eliminates unwanted iOS auto-zoom */
-        padding: 6px 0;
+        min-height:42px;
+        font-size:16px;
+        padding:9px 3px;
       }
       .composer-tip {
         display: none; /* Saves essential vertical screen ratio on mobile */
       }
-      .mobile-bottom-nav {
-        display: flex;
-        height: calc(54px + var(--sab));
-      }
+      .mobile-bottom-nav { display:flex; height:calc(64px + var(--sab)); }
 
       /* Admin Mobile Transformation */
       .admin-layout {
@@ -2697,6 +2938,854 @@
         padding-top: 8px;
       }
     }
+  
+    /* =========================================================
+       MODERN ENTERPRISE PRODUCTION SUITE THEME (CLIENT READY)
+       ========================================================= */
+    :root {
+      --app-font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --app-font-display: 'Plus Jakarta Sans', var(--app-font);
+      --sidebar-dark: #090d16;
+      --sidebar-border: rgba(255, 255, 255, 0.08);
+      --composer-border: #cbd5e1;
+      --composer-focus: #2563eb;
+    }
+
+    /* Strict exclusion of mobile bottom navigation bar on all desktop & tablet displays */
+    @media (min-width: 769px) {
+      #mobile-bottom-nav,
+      .mobile-bottom-nav {
+        display: none !important;
+        visibility: hidden !important;
+        pointer-events: none !important;
+        height: 0 !important;
+        max-height: 0 !important;
+        opacity: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        border: none !important;
+      }
+    }
+
+    #chat-view {
+      display: none;
+      height: 100vh !important;
+      height: 100dvh !important;
+      max-height: 100vh !important;
+      max-height: 100dvh !important;
+      overflow: hidden !important;
+      background: #f8fafc !important;
+      font-family: var(--app-font) !important;
+    }
+
+    .chat-layout {
+      display: grid !important;
+      grid-template-columns: 260px minmax(0, 1fr) 280px !important;
+      height: 100% !important;
+      max-height: 100vh !important;
+      max-height: 100dvh !important;
+      overflow: hidden !important;
+      background: #f8fafc !important;
+    }
+
+    /* Left Sidebar: Sleek Obsidian Enterprise Studio */
+    .chat-sidebar {
+      background: var(--sidebar-dark) !important;
+      border-right: 1px solid var(--sidebar-border) !important;
+      padding: 18px 14px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      color: #f8fafc !important;
+      z-index: 30 !important;
+    }
+
+    .chat-sidebar-header-row {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      margin-bottom: 16px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .chat-sidebar-brand {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      font-family: var(--app-font-display) !important;
+      font-weight: 800 !important;
+      font-size: 16.5px !important;
+      color: #ffffff !important;
+      letter-spacing: -0.3px !important;
+    }
+
+    .chat-sidebar-brand .brand-icon {
+      width: 30px !important;
+      height: 30px !important;
+      border-radius: 9px !important;
+      background: linear-gradient(135deg, #0ea5e9, #4f46e5) !important;
+      display: grid !important;
+      place-items: center !important;
+      color: #ffffff !important;
+      font-size: 15px !important;
+      box-shadow: 0 0 16px rgba(14, 165, 233, 0.45) !important;
+      flex-shrink: 0 !important;
+    }
+
+    .brand-badge {
+      font-size: 9.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.06em !important;
+      color: #38bdf8 !important;
+      background: rgba(56, 189, 248, 0.12) !important;
+      border: 1px solid rgba(56, 189, 248, 0.25) !important;
+      padding: 2px 6px !important;
+      border-radius: 4px !important;
+      text-transform: uppercase !important;
+    }
+
+    .btn-new-chat {
+      background: rgba(255, 255, 255, 0.06) !important;
+      border: 1px solid rgba(255, 255, 255, 0.12) !important;
+      color: #ffffff !important;
+      font-weight: 600 !important;
+      font-size: 13.5px !important;
+      padding: 10px 14px !important;
+      border-radius: 10px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      margin-bottom: 16px !important;
+      cursor: pointer !important;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    .btn-new-chat:hover {
+      background: rgba(37, 99, 235, 0.2) !important;
+      border-color: #38bdf8 !important;
+      transform: translateY(-1px) !important;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.2) !important;
+    }
+
+    .btn-new-chat-left {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+
+    .kbd-shortcut {
+      font-size: 10px !important;
+      font-family: var(--font-code) !important;
+      padding: 2px 6px !important;
+      background: rgba(255, 255, 255, 0.08) !important;
+      border: 1px solid rgba(255, 255, 255, 0.14) !important;
+      border-radius: 4px !important;
+      color: #94a3b8 !important;
+    }
+
+    .sidebar-menu {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 3px !important;
+      margin-bottom: 16px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .menu-item {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      padding: 8px 12px !important;
+      border-radius: 8px !important;
+      color: #94a3b8 !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      background: transparent !important;
+      text-align: left !important;
+      width: 100% !important;
+      transition: all 0.15s ease !important;
+      border: 1px solid transparent !important;
+    }
+
+    .menu-item:hover {
+      color: #ffffff !important;
+      background: rgba(255, 255, 255, 0.05) !important;
+    }
+
+    .menu-item.active {
+      color: #38bdf8 !important;
+      background: rgba(56, 189, 248, 0.1) !important;
+      border-color: rgba(56, 189, 248, 0.2) !important;
+      font-weight: 600 !important;
+    }
+
+    .menu-item svg {
+      width: 17px !important;
+      height: 17px !important;
+      stroke-width: 2 !important;
+      flex-shrink: 0 !important;
+    }
+
+    .sidebar-section-title {
+      font-size: 10.5px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      color: #64748b !important;
+      padding: 6px 8px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .session-list-box {
+      flex: 1 1 0% !important;
+      min-height: 0 !important;
+      overflow-y: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 3px !important;
+      margin-bottom: 12px !important;
+      padding-right: 2px !important;
+      scrollbar-width: thin !important;
+    }
+
+    .session-pill {
+      padding: 8px 10px !important;
+      border-radius: 8px !important;
+      font-size: 12.5px !important;
+      color: #cbd5e1 !important;
+      background: transparent !important;
+      text-align: left !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      flex-shrink: 0 !important;
+      transition: all 0.15s ease !important;
+    }
+
+    .session-pill:hover {
+      background: rgba(255, 255, 255, 0.06) !important;
+      color: #ffffff !important;
+    }
+
+    .session-pill.active {
+      background: rgba(56, 189, 248, 0.12) !important;
+      color: #38bdf8 !important;
+      border: 1px solid rgba(56, 189, 248, 0.25) !important;
+      font-weight: 600 !important;
+    }
+
+    .sidebar-user {
+      border-top: 1px solid var(--sidebar-border) !important;
+      padding-top: 12px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .user-avatar-badge {
+      width: 32px !important;
+      height: 32px !important;
+      border-radius: 8px !important;
+      background: linear-gradient(135deg, #0ea5e9, #4f46e5) !important;
+      color: #ffffff !important;
+      font-weight: 700 !important;
+      display: grid !important;
+      place-items: center !important;
+      font-size: 13px !important;
+      flex-shrink: 0 !important;
+    }
+
+    .user-name-label {
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      color: #e2e8f0 !important;
+    }
+
+    /* Center Chat Area */
+    .chat-center {
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      overflow: hidden !important;
+      background: #f8fafc !important;
+      position: relative !important;
+    }
+
+    .chat-topbar {
+      height: 64px !important;
+      min-height: 64px !important;
+      background: rgba(255, 255, 255, 0.92) !important;
+      backdrop-filter: blur(16px) !important;
+      -webkit-backdrop-filter: blur(16px) !important;
+      border-bottom: 1px solid #e2e8f0 !important;
+      padding: 0 clamp(16px, 2.5vw, 28px) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      flex-shrink: 0 !important;
+      z-index: 25 !important;
+    }
+
+    .topbar-info h2 {
+      font-size: 15px !important;
+      font-weight: 700 !important;
+      color: #0f172a !important;
+      margin: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+
+    .topbar-info p {
+      font-size: 11.5px !important;
+      color: #64748b !important;
+      margin: 2px 0 0 !important;
+    }
+
+    .model-selector-pill {
+      background: #ffffff !important;
+      border: 1px solid #cbd5e1 !important;
+      color: #1e293b !important;
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      padding: 5px 10px !important;
+      border-radius: 8px !important;
+      cursor: pointer !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03) !important;
+    }
+
+    .topbar-controls {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+
+    .chat-status-pill {
+      background: #f0fdf4 !important;
+      border: 1px solid #bbf7d0 !important;
+      color: #166534 !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      padding: 5px 10px !important;
+      border-radius: 9999px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+
+    .btn-voice-toggle,
+    .btn-quick-guide,
+    .btn-primary-pill {
+      height: 32px !important;
+      padding: 0 11px !important;
+      border-radius: 8px !important;
+      font-size: 11.5px !important;
+      font-weight: 600 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      border: 1px solid #e2e8f0 !important;
+      background: #ffffff !important;
+      color: #475569 !important;
+      cursor: pointer !important;
+      transition: all 0.15s ease !important;
+    }
+
+    .btn-voice-toggle.active {
+      background: #eff6ff !important;
+      border-color: #bfdbfe !important;
+      color: #2563eb !important;
+    }
+
+    /* Chat Stream */
+    .chat-stream {
+      flex: 1 1 0% !important;
+      min-height: 0 !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+      padding: 24px clamp(16px, 3vw, 36px) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 20px !important;
+      scroll-behavior: smooth !important;
+    }
+
+    .msg-group {
+      max-width: min(860px, 100%) !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+      display: flex !important;
+      gap: 14px !important;
+    }
+
+    .msg-group.user {
+      flex-direction: row-reverse !important;
+    }
+
+    .msg-avatar {
+      width: 36px !important;
+      height: 36px !important;
+      min-width: 36px !important;
+      border-radius: 10px !important;
+      flex-shrink: 0 !important;
+      overflow: hidden !important;
+      display: grid !important;
+      place-items: center !important;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06) !important;
+    }
+
+    .msg-avatar img {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    .msg-body {
+      max-width: calc(100% - 50px) !important;
+      min-width: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .msg-group.user .msg-body {
+      align-items: flex-end !important;
+    }
+
+    .msg-group.assistant .msg-body {
+      align-items: flex-start !important;
+    }
+
+    .msg-bubble {
+      padding: 14px 18px !important;
+      border-radius: 16px !important;
+      font-size: 14.5px !important;
+      line-height: 1.6 !important;
+      word-break: break-word !important;
+      position: relative !important;
+    }
+
+    .msg-group.user .msg-bubble {
+      background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+      color: #ffffff !important;
+      border-top-right-radius: 4px !important;
+      box-shadow: 0 4px 14px rgba(37, 99, 235, 0.18) !important;
+    }
+
+    .msg-group.assistant .msg-bubble {
+      background: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      color: #0f172a !important;
+      border-top-left-radius: 4px !important;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04) !important;
+    }
+
+    /* Welcome Hero Card & 2x2 Showcase Grid */
+    .welcome-card-box {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+      width: 100%;
+    }
+
+    .welcome-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .welcome-brand-row h3 {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 800;
+      color: #0f172a;
+      letter-spacing: -0.3px;
+    }
+
+    .welcome-sub {
+      color: #64748b;
+      font-size: 13.5px;
+      line-height: 1.5;
+      margin: 0 0 16px;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .showcase-tile {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 13px 14px;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .showcase-tile:hover {
+      background: #ffffff;
+      border-color: #3b82f6;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.1);
+    }
+
+    .showcase-tile-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: #0f172a;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .showcase-tile-desc {
+      font-size: 11.5px;
+      color: #64748b;
+      line-height: 1.4;
+    }
+
+    .welcome-tour-cta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 14px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-radius: 10px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .welcome-tour-cta span {
+      font-size: 12px;
+      color: #1e40af;
+      font-weight: 500;
+    }
+
+    .welcome-tour-cta button {
+      background: #2563eb;
+      color: #ffffff;
+      border-radius: 7px;
+      padding: 6px 13px;
+      font-size: 11.5px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.15s ease;
+    }
+
+    .welcome-tour-cta button:hover {
+      background: #1d4ed8;
+    }
+
+    /* SPATIOUS, MODERN, EFFORTLESS COMPOSER */
+    .composer-container {
+      background: #ffffff !important;
+      border-top: 1px solid #e2e8f0 !important;
+      padding: 14px clamp(16px, 3.5vw, 36px) 18px !important;
+      position: relative !important;
+      z-index: 30 !important;
+      width: 100% !important;
+      flex-shrink: 0 !important;
+      box-shadow: 0 -4px 18px rgba(15, 23, 42, 0.03) !important;
+    }
+
+    .quick-tools-bar {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      margin: 0 auto 10px auto !important;
+      max-width: 860px !important;
+      overflow-x: auto !important;
+      padding: 2px 2px 4px !important;
+      scrollbar-width: none !important;
+    }
+
+    .quick-tools-bar::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    .btn-quick-action {
+      background: #f8fafc !important;
+      border: 1px solid #e2e8f0 !important;
+      color: #334155 !important;
+      font-size: 11.5px !important;
+      font-weight: 600 !important;
+      padding: 6px 13px !important;
+      border-radius: 9999px !important;
+      white-space: nowrap !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+      cursor: pointer !important;
+      transition: all 0.15s ease !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
+    }
+
+    .btn-quick-action:hover {
+      background: #eff6ff !important;
+      border-color: #93c5fd !important;
+      color: #2563eb !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* Generous, comfortable, modern composer box */
+    .composer-box {
+      max-width: 860px !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+      background: #ffffff !important;
+      border: 1.5px solid #cbd5e1 !important;
+      border-radius: 16px !important;
+      padding: 10px 14px !important;
+      display: flex !important;
+      align-items: flex-end !important;
+      gap: 10px !important;
+      box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06), 0 0 0 1px rgba(226, 232, 240, 0.6) !important;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      box-sizing: border-box !important;
+    }
+
+    .composer-box:focus-within {
+      border-color: #2563eb !important;
+      box-shadow: 0 4px 24px -2px rgba(37, 99, 235, 0.12), 0 0 0 3px rgba(37, 99, 235, 0.16) !important;
+    }
+
+    /* Spacious text area where users can type effortlessly */
+    .composer-input {
+      flex: 1 1 auto !important;
+      border: none !important;
+      outline: none !important;
+      background: transparent !important;
+      font-family: inherit !important;
+      font-size: 15px !important;
+      line-height: 1.55 !important;
+      color: #0f172a !important;
+      resize: none !important;
+      min-height: 48px !important;
+      max-height: 180px !important;
+      padding: 6px 4px !important;
+      box-sizing: border-box !important;
+      scrollbar-width: thin !important;
+    }
+
+    .composer-input::placeholder {
+      color: #94a3b8 !important;
+      font-size: 14.5px !important;
+      font-weight: 400 !important;
+    }
+
+    .btn-composer-icon {
+      width: 36px !important;
+      height: 36px !important;
+      min-width: 36px !important;
+      border-radius: 10px !important;
+      background: #f8fafc !important;
+      border: 1px solid #e2e8f0 !important;
+      color: #64748b !important;
+      display: grid !important;
+      place-items: center !important;
+      padding: 0 !important;
+      margin-bottom: 2px !important;
+      cursor: pointer !important;
+      transition: all 0.15s ease !important;
+      flex-shrink: 0 !important;
+    }
+
+    .btn-composer-icon:hover {
+      background: #eff6ff !important;
+      border-color: #bfdbfe !important;
+      color: #2563eb !important;
+      transform: translateY(-1px) !important;
+    }
+
+    .btn-send {
+      width: 38px !important;
+      height: 38px !important;
+      min-width: 38px !important;
+      border-radius: 10px !important;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;
+      color: #ffffff !important;
+      display: grid !important;
+      place-items: center !important;
+      border: none !important;
+      margin-bottom: 2px !important;
+      cursor: pointer !important;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.28) !important;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      flex-shrink: 0 !important;
+      font-size: 16px !important;
+    }
+
+    .btn-send:hover {
+      background: linear-gradient(135deg, #1d4ed8, #1e40af) !important;
+      box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4) !important;
+      transform: translateY(-1px) scale(1.02) !important;
+    }
+
+    .btn-send:disabled {
+      opacity: 0.45 !important;
+      box-shadow: none !important;
+      cursor: not-allowed !important;
+      transform: none !important;
+    }
+
+    .composer-tip {
+      font-size: 11.5px !important;
+      color: #94a3b8 !important;
+      text-align: center !important;
+      margin-top: 8px !important;
+      letter-spacing: 0.2px !important;
+    }
+
+    /* Right Panel: Enterprise Quick Actions & Clean Knowledge */
+    .chat-right-panel {
+      background: #ffffff !important;
+      border-left: 1px solid #e2e8f0 !important;
+      padding: 22px 18px !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      overflow-y: auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 24px !important;
+    }
+
+    .right-section-title {
+      font-size: 11.5px !important;
+      font-weight: 700 !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.08em !important;
+      color: #64748b !important;
+      margin-bottom: 12px !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 6px !important;
+    }
+
+    .suggested-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 7px !important;
+    }
+
+    .btn-suggested-question {
+      background: #f8fafc !important;
+      border: 1px solid #e2e8f0 !important;
+      color: #1e293b !important;
+      font-size: 12.5px !important;
+      font-weight: 600 !important;
+      padding: 10px 12px !important;
+      border-radius: 10px !important;
+      text-align: left !important;
+      transition: all 0.15s ease !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
+    }
+
+    .btn-suggested-question:hover {
+      background: #ffffff !important;
+      border-color: #93c5fd !important;
+      color: #2563eb !important;
+      transform: translateX(2px) !important;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.08) !important;
+    }
+
+    .articles-list {
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 6px !important;
+    }
+
+    .article-item {
+      font-size: 12.5px !important;
+      font-weight: 500 !important;
+      color: #334155 !important;
+      text-decoration: none !important;
+      padding: 9px 12px !important;
+      border-radius: 8px !important;
+      background: #f8fafc !important;
+      cursor: pointer !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      transition: all 0.15s ease !important;
+      border: 1px solid #e2e8f0 !important;
+    }
+
+    .article-item:hover {
+      background: #ffffff !important;
+      color: #2563eb !important;
+      border-color: #bfdbfe !important;
+      transform: translateX(2px) !important;
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1100px) {
+      .chat-layout {
+        grid-template-columns: 240px minmax(0, 1fr) !important;
+      }
+      .chat-right-panel {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .chat-layout {
+        grid-template-columns: 1fr !important;
+      }
+      .chat-sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        bottom: 0 !important;
+        left: 0 !important;
+        width: 82% !important;
+        max-width: 320px !important;
+        z-index: 1000 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.28s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.45) !important;
+      }
+      .chat-sidebar.mobile-open {
+        transform: translateX(0) !important;
+      }
+      .btn-mobile-header-toggle {
+        display: flex !important;
+      }
+      .btn-drawer-close {
+        display: inline-block !important;
+      }
+      #mobile-bottom-nav,
+      .mobile-bottom-nav {
+        display: flex !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        height: calc(54px + var(--sab)) !important;
+        opacity: 1 !important;
+      }
+      .composer-container {
+        padding: 8px 12px calc(58px + var(--sab) + 4px) !important;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2708,7 +3797,7 @@
     <nav class="land-nav">
       <div class="brand-logo">
         <div class="brand-icon">✦</div>
-        <span>SupportAI</span>
+        <span>Production Grade Agentic System</span>
       </div>
       <div class="land-nav-links" id="land-nav-links">
         <a href="#home" class="active">Home</a>
@@ -2734,10 +3823,10 @@
     <div class="hero-container" id="home">
       <div class="hero-content">
         <h1 class="hero-title">
-          AI-Powered Customer Support for <span class="gradient-text">Modern Businesses</span>
+          Production Grade <span class="gradient-text">Agentic System</span>
         </h1>
         <p class="hero-subtitle">
-          Automate customer support and multimodal personal tasks with intelligent AI agents. Voice, image generation, video prompts, and order tracking across any website.
+          A production-ready platform for building, orchestrating, and operating reliable AI agents, with tools for chat, voice, multimodal tasks, memory, and observability.
         </p>
 
         <div class="hero-actions">
@@ -2762,7 +3851,7 @@
         <div class="floating-pill pill-handover" style="cursor:pointer" data-prompt="How does seamless human specialist handover work?" title="Click to ask"><span style="color:#38bdf8">👤</span><span>Human Handover</span></div>
 
         <div class="robot-stage-card">
-          <img src="/static/robot.jpg" alt="SupportAI 3D Mascot" class="robot-mascot-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'240\' height=\'240\' viewBox=\'0 0 240 240\'><rect width=\'240\' height=\'240\' rx=\'120\' fill=\'%232563eb\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-size=\'80\' fill=\'%23fff\'>🤖</text></svg>'">
+          <img src="/static/robot.jpg" alt="Production Grade Agentic System assistant" class="robot-mascot-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'240\' height=\'240\' viewBox=\'0 0 240 240\'><rect width=\'240\' height=\'240\' rx=\'120\' fill=\'%232563eb\'/><text x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-size=\'80\' fill=\'%23fff\'>🤖</text></svg>'">
           
           <div class="robot-speech-bar">
             <div class="audio-wave"><span></span><span></span><span></span><span></span></div>
@@ -2953,30 +4042,56 @@
   <!-- =========================================================
        VIEW 2: CHAT INTERFACE (ROCK-SOLID PINNED LAYOUT)
        ========================================================= -->
-  <div id="chat-view">
+    <div id="chat-view">
     <div class="chat-layout">
-      <!-- Left Sidebar -->
+      <!-- Left Sidebar: Sleek Obsidian Enterprise -->
       <aside class="chat-sidebar" id="chat-sidebar">
         <div class="chat-sidebar-header-row">
           <div class="chat-sidebar-brand" style="margin-bottom:0">
-            <div class="brand-icon" style="width:30px;height:30px;font-size:15px">✦</div>
+            <div class="brand-icon">✦</div>
             <span>SupportAI</span>
+            <span class="brand-badge">Enterprise</span>
           </div>
           <button id="btn-close-sidebar-drawer" class="btn-drawer-close" title="Close Drawer">✕</button>
         </div>
 
-        <button id="btn-sidebar-new-chat" class="btn-new-chat">
-          <span>＋</span> New Chat
+        <button id="btn-sidebar-new-chat" class="btn-new-chat" title="Start new conversation">
+          <div class="btn-new-chat-left">
+            <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" fill="none"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>New Chat</span>
+          </div>
+          <kbd class="kbd-shortcut">⌘K</kbd>
         </button>
 
         <div class="sidebar-menu">
-          <button class="menu-item" id="nav-chat-home"><span class="menu-icon">🏠</span> Home</button>
-          <button class="menu-item" id="nav-chat-guide" style="color:#2563eb;font-weight:700"><span class="menu-icon">🚀</span> Quick Guide</button>
-          <button class="menu-item" id="nav-chat-tickets"><span class="menu-icon">🎫</span> My Tickets</button>
-          <button class="menu-item active" id="nav-chat-ai"><span class="menu-icon">💬</span> Chat with AI</button>
-          <button class="menu-item" id="nav-chat-apk" style="color:#10b981;font-weight:700"><span class="menu-icon">📲</span> Install Android App (APK)</button>
-          <button class="menu-item" id="nav-chat-admin"><span class="menu-icon">📊</span> Admin Dashboard</button>
-          <button class="menu-item" id="nav-chat-account"><span class="menu-icon">👤</span> Account</button>
+          <button class="menu-item" id="nav-chat-home">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Home</span>
+          </button>
+          <button class="menu-item" id="nav-chat-guide" style="color:#38bdf8;font-weight:600">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>Quick Guide</span>
+          </button>
+          <button class="menu-item" id="nav-chat-tickets">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>My Tickets</span>
+          </button>
+          <button class="menu-item active" id="nav-chat-ai">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <span>Chat with AI</span>
+          </button>
+          <button class="menu-item" id="nav-chat-apk" style="color:#34d399">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+            <span>Install Android APK</span>
+          </button>
+          <button class="menu-item" id="nav-chat-admin">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+            <span>Admin Dashboard</span>
+          </button>
+          <button class="menu-item" id="nav-chat-account">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <span>Account</span>
+          </button>
         </div>
 
         <div class="sidebar-section-title">Recent Conversations</div>
@@ -3012,21 +4127,17 @@
                   <option value="jarvis-core">⚡ JARVIS Neural</option>
                 </select>
               </h2>
-              <p>Multimodal Personal Assistant & Support Executive</p>
+              <p>Enterprise Multi-Agent Swarm Orchestrator</p>
             </div>
           </div>
 
           <div class="topbar-controls">
-            <button id="btn-topbar-apk" class="btn-primary-pill" style="padding:6px 12px;font-size:11px;background:linear-gradient(135deg,#059669,#10b981);box-shadow:0 0 10px rgba(16,185,129,0.3);color:#fff;border:none;cursor:pointer" title="Install Android App / Download APK">
-              <span>📲</span> <span>App / APK</span>
+            <button id="btn-topbar-apk" class="btn-primary-pill" title="Install Android App / Download APK">
+              <span>📲</span> <span>Mobile App</span>
             </button>
             <button id="btn-quick-guide" class="btn-quick-guide" title="Step-by-step Interactive User Guide">
               <span>🚀</span> <span>Quick Guide</span>
             </button>
-            <div class="swarm-telemetry-badge" title="Multi-Agent Swarm Active: Supervisor, Food Agent, Retail Agent, Multimodal Studio">
-              <span class="swarm-pulse"></span>
-              <span>Swarm Active</span>
-            </div>
             <div id="jarvis-speaking-badge" class="jarvis-speaking-badge" title="Iron Man JARVIS Neural Voice Active (Click to audition/test)">
               <div class="jarvis-mini-wave"><span></span><span></span><span></span></div>
               <span class="badge-text">JARVIS Speaking</span>
@@ -3034,9 +4145,9 @@
             <button id="btn-voice-toggle" class="btn-voice-toggle active" title="Toggle Assistant Voice Output">
               <span id="voice-icon">🔊</span> <span id="voice-label">Voice ON</span>
             </button>
-            <div class="chat-status-pill" style="display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:#10b981;background:#ecfdf5;padding:4px 10px;border-radius:9999px">
-              <span style="width:6px;height:6px;border-radius:50%;background:#10b981"></span>
-              <span>Online</span>
+            <div class="chat-status-pill" title="Multi-Agent Swarm Active: Supervisor, Food Agent, Retail Agent, Multimodal Studio">
+              <span style="width:7px;height:7px;border-radius:50%;background:#10b981"></span>
+              <span>Swarm Ready</span>
             </div>
           </div>
         </header>
@@ -3045,34 +4156,58 @@
         <div class="chat-stream" id="chat-stream" aria-live="polite">
           <div class="msg-group assistant">
             <div class="msg-avatar">
-              <img src="/static/robot.jpg" alt="Bot">
+              <svg viewBox="0 0 36 36" width="36" height="36" fill="none" style="display:block">
+                <rect width="36" height="36" rx="10" fill="url(#ai-avatar-grad)"/>
+                <path d="M18 8L20.5 15.5L28 18L20.5 20.5L18 28L15.5 20.5L8 18L15.5 15.5L18 8Z" fill="#ffffff"/>
+                <circle cx="18" cy="18" r="2.5" fill="#93c5fd"/>
+                <defs>
+                  <linearGradient id="ai-avatar-grad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#2563eb"/>
+                    <stop offset="1" stop-color="#4f46e5"/>
+                  </linearGradient>
+                </defs>
+              </svg>
             </div>
             <div class="msg-body">
-              <div class="msg-bubble">
-                Hello! I am <strong>JARVIS & SupportAI</strong>, your personal multimodal intelligent assistant.
-                <br><br>
-                I can help you with:
-                <ul>
-                  <li>🎨 <strong>AI Image Generation</strong> — Describe any picture or character in 8K</li>
-                  <li>🎬 <strong>AI Video Storyboards</strong> — Direct clips for Sora, Runway Gen-3, or Luma</li>
-                  <li>📦 <strong>Universal Order Tracking</strong> — Live status for Amazon, Swiggy, Zomato, Domino's</li>
-                  <li>🛒 <strong>Autonomous Ordering</strong> — Place food or retail orders with live receipts</li>
-                  <li>🎙️ <strong>Full Voice Mode</strong> — Hands-free microphone dialogue with British AI voice</li>
-                  <li>🌐 <strong>Live Web Search</strong> — Grounded DuckDuckGo search with instant citations</li>
-                </ul>
-                <div style="margin-top:12px;padding:10px 14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap">
-                  <span style="font-size:12px;color:#166534">💡 <strong>New to SupportAI & JARVIS?</strong> Take our 6-step interactive tour to try every feature in real-time.</span>
-                  <button type="button" id="btn-welcome-guide" style="padding:6px 14px;border-radius:6px;background:#16a34a;color:#fff;font-size:11px;font-weight:700;white-space:nowrap;cursor:pointer;border:none">Start Quick Guide →</button>
+              <div class="welcome-card-box">
+                <div class="welcome-brand-row">
+                  <div style="width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,#0ea5e9,#4f46e5);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800">✦</div>
+                  <h3>What would you like to achieve today?</h3>
+                </div>
+                <p class="welcome-sub">SupportAI & JARVIS enterprise multi-agent swarm is online. Inquire about orders, synthesize 8K visual concepts, direct video sequences, or explore corporate documentation.</p>
+                
+                <div class="showcase-grid">
+                  <div class="showcase-tile" onclick="window.sendSuggestedPrompt && window.sendSuggestedPrompt('Generate an image of a sleek futuristic luxury smart watch on a dark obsidian podium with cyan rim lighting 8K')">
+                    <div class="showcase-tile-title"><span>🎨</span> 8K AI Image Studio</div>
+                    <div class="showcase-tile-desc">Render photorealistic product designs & concept art</div>
+                  </div>
+                  <div class="showcase-tile" onclick="window.sendSuggestedPrompt && window.sendSuggestedPrompt('Where is my order #ORD12345 on Amazon?')">
+                    <div class="showcase-tile-title"><span>📦</span> Live Order Telemetry</div>
+                    <div class="showcase-tile-desc">Track real-time carrier status across Amazon, Swiggy & Zomato</div>
+                  </div>
+                  <div class="showcase-tile" onclick="window.sendSuggestedPrompt && window.sendSuggestedPrompt('Animate a 5-second cinematic clip of an autonomous delivery drone descending onto a city balcony')">
+                    <div class="showcase-tile-title"><span>🎬</span> Video Storyboards</div>
+                    <div class="showcase-tile-desc">Direct camera angles and cinematic scenes for Sora & Runway</div>
+                  </div>
+                  <div class="showcase-tile" onclick="window.sendSuggestedPrompt && window.sendSuggestedPrompt('Order a large hot pepperoni pizza and garlic breadsticks from Domino's to my address')">
+                    <div class="showcase-tile-title"><span>🛒</span> Autonomous Checkout</div>
+                    <div class="showcase-tile-desc">Itemized price calculation, tax computation, and receipts</div>
+                  </div>
+                </div>
+
+                <div class="welcome-tour-cta">
+                  <span>💡 <strong>New to the system?</strong> Master every multimodal capability in seconds with our interactive guide.</span>
+                  <button type="button" id="btn-welcome-guide">Launch Quick Guide →</button>
                 </div>
               </div>
-              <div class="msg-time">Just now</div>
+              <div class="msg-time" style="margin-top:6px">Just now</div>
             </div>
           </div>
         </div>
 
-        <!-- Fixed Bottom Composer Area (Never slides off screen) -->
+        <!-- Fixed Bottom Composer Area (Never slides off screen & Spacious) -->
         <div class="composer-container">
-          <!-- Quick Action Buttons (ChatGPT / Gemini style) -->
+          <!-- Quick Action Buttons Toolbar -->
           <div class="quick-tools-bar">
             <button class="btn-quick-action" id="btn-quick-guide-bar" style="background:#fef3c7;border-color:#fcd34d;color:#b45309;font-weight:700" title="Interactive Step-by-Step User Guide">
               🚀 Quick Guide
@@ -3080,17 +4215,17 @@
             <button class="btn-quick-action" id="btn-quick-image-studio" style="background:#eff6ff;border-color:#93c5fd;color:#2563eb;font-weight:700" title="Open AI Image Studio & Prompt Fixer">
               ✨ Image Studio
             </button>
-            <button class="btn-quick-action" id="btn-quick-generate-img" data-prompt="Generate an image of a majestic futuristic cybernetic robotic lion with neon blue lighting">
-              🎨 Generate Image
+            <button class="btn-quick-action" id="btn-quick-generate-img" data-prompt="Generate an image of a sleek futuristic luxury electric supercar in neon studio lighting 8K">
+              🎨 Generate 8K Image
             </button>
-            <button class="btn-quick-action" data-prompt="Animate a short clip of AI video where a snake humanoid character named Nagu walks through an ancient temple">
+            <button class="btn-quick-action" data-prompt="Animate a 5-second cinematic clip of an autonomous delivery drone gliding across a futuristic city skyline">
               🎬 Generate Video
             </button>
             <button class="btn-quick-action" data-prompt="Where is my order #ORD12345 on Amazon?">
               📦 Track Order
             </button>
             <button class="btn-quick-action" data-prompt="Order a large hot pepperoni pizza and garlic breadsticks from Domino's">
-              🛒 Place Order
+              🛒 Place Food Order
             </button>
             <button class="btn-quick-action" data-prompt="Search the web for the latest artificial intelligence breakthroughs today">
               🔍 Web Search
@@ -3110,14 +4245,14 @@
           </div>
           <input type="file" id="composer-file-input" style="display:none" accept="image/*,.pdf,.txt,.json,.csv,.doc,.docx">
 
-          <!-- Input Composer Form -->
+          <!-- Input Composer Form (Generous, Comfortable, Modern) -->
           <form id="composer-form" class="composer-box">
             <button type="button" id="btn-attach" class="btn-composer-icon" title="Attach image / file">📎</button>
             <button type="button" id="btn-mic" class="btn-composer-icon btn-mic" title="Voice Input (Speech-to-Text)">🎙️</button>
-            <textarea id="message-input" class="composer-input" rows="1" placeholder="Ask Jarvis, generate image/video, or track orders..." aria-label="Type message"></textarea>
+            <textarea id="message-input" class="composer-input" rows="1" placeholder="Ask Jarvis, describe an image, track an order, or draft a request..." aria-label="Type message"></textarea>
             <button type="submit" id="btn-send" class="btn-send" title="Send message (Enter)" aria-label="Send message">➤</button>
           </form>
-          <div class="composer-tip">Press <strong>Enter</strong> to send, <strong>Shift + Enter</strong> for a new line · 🎙️ Voice & 🔊 Speech enabled</div>
+          <div class="composer-tip">Press <strong>Enter</strong> to send, <strong>Shift + Enter</strong> for a new line · 🎙️ Voice & 🔊 Speech enabled · Swarm Active</div>
         </div>
       </main>
 
@@ -3125,27 +4260,39 @@
       <aside class="chat-right-panel">
         <div>
           <div class="right-section-title">
-            <span>✨</span> Suggested Actions
+            <span>✨</span> Quick Actions
           </div>
           <div class="suggested-list">
             <button class="btn-suggested-question" data-text="Track my order #ORD12345 on Amazon">📦 Track my order</button>
-            <button class="btn-suggested-question" data-text="Order hot pizza from Domino's to my address">🍕 Order Domino's Pizza</button>
-            <button class="btn-suggested-question" data-text="Generate an image of Nagu snake humanoid warrior with emerald scales in 8K">🎨 Generate Nagu Image</button>
-            <button class="btn-suggested-question" data-text="Animate a short video clip of Nagu exploring an ancient bioluminescent cave">🎬 Animate Nagu Video</button>
-            <button class="btn-suggested-question" data-text="What is the refund and return policy for damaged goods?">↩️ Refund policy</button>
-            <button class="btn-suggested-question" data-text="I would like to speak to a senior human support specialist.">👤 Talk to a human agent</button>
+            <button class="btn-suggested-question" data-text="Order hot pepperoni pizza from Domino's to my address">🍕 Order Domino's Pizza</button>
+            <button class="btn-suggested-question" data-text="Generate an 8K photorealistic concept visual of a high-tech smart wearable device on a marble surface with studio lighting">🎨 Generate 8K Asset</button>
+            <button class="btn-suggested-question" data-text="Animate a 5-second cinematic clip of an autonomous delivery drone navigating through a smart city skyline">🎬 Cinematic Video Clip</button>
+            <button class="btn-suggested-question" data-text="What is the refund and return policy for damaged goods?">↩️ Refund & Return Policy</button>
+            <button class="btn-suggested-question" data-text="I would like to speak to a senior human support specialist.">👤 Contact Human Agent</button>
           </div>
         </div>
 
         <div>
           <div class="right-section-title">
-            <span>📖</span> Knowledge & Articles
+            <span>📖</span> Help & Documentation
           </div>
           <div class="articles-list">
-            <a class="article-item" data-text="How do I track my order step-by-step?">How to track your order</a>
-            <a class="article-item" data-text="Explain the return and refund policy in detail.">Return & Refund Policy</a>
-            <a class="article-item" data-text="What is covered under the 1-year product warranty?">Warranty Information</a>
-            <a class="article-item" data-text="What are standard shipping times and carriers?">Shipping & Delivery Info</a>
+            <a class="article-item" data-text="How do I track my order step-by-step?">
+              <span>Order Tracking SLA Guide</span>
+              <span style="color:#94a3b8">›</span>
+            </a>
+            <a class="article-item" data-text="Explain the return and refund policy in detail.">
+              <span>Return & Refund Policies</span>
+              <span style="color:#94a3b8">›</span>
+            </a>
+            <a class="article-item" data-text="What is covered under the 1-year product warranty?">
+              <span>Hardware Warranty Terms</span>
+              <span style="color:#94a3b8">›</span>
+            </a>
+            <a class="article-item" data-text="What are standard shipping times and carriers?">
+              <span>Global Carrier Networks</span>
+              <span style="color:#94a3b8">›</span>
+            </a>
           </div>
         </div>
       </aside>
@@ -4281,7 +5428,7 @@
         // Mobile bottom navigation bar visibility & active state
         const mobNav = $('mobile-bottom-nav');
         if (mobNav) {
-          mobNav.style.display = (target === 'chat' || target === 'admin') ? 'flex' : 'none';
+          mobNav.style.display = ((target === 'chat' || target === 'admin') && window.innerWidth <= 768) ? 'flex' : 'none';
           document.querySelectorAll('.mobile-nav-btn').forEach(btn => btn.classList.remove('active'));
           if (target === 'chat') {
             const chatBtn = $('mob-nav-chat');
@@ -4910,7 +6057,7 @@
         const avatar = document.createElement('div');
         avatar.className = 'msg-avatar';
         if (role === 'assistant') {
-          avatar.innerHTML = `<img src="/static/robot.jpg" alt="Bot" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\'http://www.w3.org/2000/svg\\' width=\\'34\\' height=\\'34\\'><circle cx=\\'17\\' cy=\\'17\\' r=\\'17\\' fill=\\'%232563eb\\'/></svg>'">`;
+          avatar.innerHTML = '<span class="assistant-avatar-mark" aria-label="Assistant">✦</span>';
         } else {
           avatar.textContent = (state.email || 'You').charAt(0).toUpperCase();
           avatar.style.background = '#2563eb';
@@ -5554,7 +6701,8 @@
           }
         } catch (err) {
           thinkingRow.remove();
-          appendMessage('assistant', 'Sorry, I encountered an issue: ' + err.message);
+          const errorRow = appendMessage('assistant', '<strong>Could not reach the assistant</strong><span>Check your connection and try again. If the issue continues, the service may be temporarily unavailable.</span>');
+          errorRow.querySelector('.msg-bubble')?.classList.add('error-card');
         } finally {
           state.busy = false;
           $('btn-send').disabled = false;
