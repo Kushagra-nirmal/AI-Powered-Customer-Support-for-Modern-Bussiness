@@ -7,7 +7,7 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>Production Grade Agentic System</title>
+  <title>OmniCare | Enterprise Customer Operations & Commerce Portal</title>
   <link rel="manifest" href="/static/manifest.json">
   <link rel="icon" type="image/png" sizes="192x192" href="/static/icon-192.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/static/icon-192.png">
@@ -794,7 +794,7 @@
       color: #2563eb;
     }
 
-    /* JARVIS Speaking Badge Stark HUD Styling */
+    /* Voice Active Badge Stark HUD Styling */
     .jarvis-speaking-badge {
       display: none;
       align-items: center;
@@ -3786,7 +3786,363 @@
       }
     }
 
-  </style>
+  
+    /* =========================================================
+       ENTERPRISE CUSTOMER OPERATIONS PORTAL STYLING
+       ========================================================= */
+    .auth-overlay {
+      background: radial-gradient(circle at 50% 30%, rgba(30, 41, 59, 0.95), rgba(9, 13, 22, 0.98)) !important;
+      backdrop-filter: blur(12px) !important;
+    }
+
+    .auth-modal {
+      max-width: 440px !important;
+      width: 92% !important;
+      background: #ffffff !important;
+      border: 1px solid #e2e8f0 !important;
+      border-radius: 20px !important;
+      padding: 32px 28px !important;
+      box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25) !important;
+    }
+
+    .auth-trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 9999px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+      font-size: 11px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .btn-quick-demo-login {
+      width: 100%;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #38bdf8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      cursor: pointer;
+      margin-bottom: 18px;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.15);
+    }
+
+    .btn-quick-demo-login:hover {
+      background: #0f172a;
+      border-color: #38bdf8;
+      box-shadow: 0 4px 14px rgba(56, 189, 248, 0.25);
+      transform: translateY(-1px);
+    }
+
+    .auth-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin: 14px 0 16px;
+      color: #94a3b8;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    .auth-divider::before, .auth-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .auth-divider span {
+      padding: 0 10px;
+    }
+
+    .auth-security-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding-top: 18px;
+      margin-top: 20px;
+      border-top: 1px solid #f1f5f9;
+      color: #64748b;
+      font-size: 11px;
+    }
+
+    /* Account Dashboard Modal Expansion */
+    #account-modal .app-modal-box {
+      max-width: 820px !important;
+      width: 95% !important;
+      max-height: 88vh !important;
+      border-radius: 20px !important;
+      overflow: hidden !important;
+      display: flex !important;
+      flex-direction: column !important;
+    }
+
+    .portal-tab-bar {
+      display: flex;
+      gap: 4px;
+      border-bottom: 1px solid #e2e8f0;
+      background: #f8fafc;
+      padding: 6px 14px 0;
+      overflow-x: auto;
+      scrollbar-width: none;
+      flex-shrink: 0;
+    }
+
+    .portal-tab-bar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .portal-tab-btn {
+      padding: 10px 14px;
+      border-radius: 8px 8px 0 0;
+      border: 1px solid transparent;
+      border-bottom: none;
+      background: transparent;
+      color: #64748b;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      position: relative;
+    }
+
+    .portal-tab-btn:hover {
+      color: #0f172a;
+      background: rgba(255, 255, 255, 0.6);
+    }
+
+    .portal-tab-btn.active {
+      color: #2563eb;
+      background: #ffffff;
+      border-color: #e2e8f0;
+      font-weight: 700;
+    }
+
+    .portal-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: #2563eb;
+    }
+
+    .portal-tab-content {
+      display: none;
+      flex-direction: column;
+      gap: 16px;
+      padding: 20px 22px;
+      overflow-y: auto;
+    }
+
+    .portal-tab-content.active {
+      display: flex;
+    }
+
+    /* Live Order Cards in Dashboard */
+    .order-manage-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      transition: border-color 0.15s ease;
+    }
+
+    .order-manage-card:hover {
+      border-color: #93c5fd;
+    }
+
+    .order-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .merchant-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .merchant-amazon { background: #ffedd5; color: #c2410c; border: 1px solid #fed7aa; }
+    .merchant-dominos { background: #dbeafe; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .merchant-flipkart { background: #e0e7ff; color: #4338ca; border: 1px solid #c7d2fe; }
+    .merchant-swiggy { background: #ffedd5; color: #ea580c; border: 1px solid #fed7aa; }
+
+    .order-status-badge {
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-transit { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .status-delivered { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+    .status-return { background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca; }
+
+    .order-details-row {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 12px;
+      padding: 10px 0;
+      border-top: 1px solid #f1f5f9;
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    @media (max-width: 600px) {
+      .order-details-row {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+    }
+
+    .order-actions-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .btn-portal-action {
+      padding: 6px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      border: 1px solid #e2e8f0;
+      background: #f8fafc;
+      color: #334155;
+      transition: all 0.15s ease;
+    }
+
+    .btn-portal-action:hover {
+      background: #eff6ff;
+      border-color: #93c5fd;
+      color: #2563eb;
+      transform: translateY(-1px);
+    }
+
+    .btn-portal-action.primary {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+    }
+
+    .btn-portal-action.primary:hover {
+      background: #1d4ed8;
+      border-color: #1d4ed8;
+    }
+
+    /* Merchant Connectivity Cards */
+    .merchant-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .merchant-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .merchant-bridge-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 14px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .merchant-bridge-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      display: grid;
+      place-items: center;
+      font-size: 16px;
+      flex-shrink: 0;
+    }
+
+    .merchant-bridge-info h5 {
+      margin: 0 0 2px;
+      font-size: 13px;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    .merchant-bridge-info p {
+      margin: 0 0 6px;
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .merchant-sync-pill {
+      font-size: 10px;
+      font-weight: 700;
+      color: #059669;
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      padding: 2px 7px;
+      border-radius: 9999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+  
+/* ENFORCE CLEAN DESKTOP COMPOSER & REMOVE MOBILE NAV OVERLAP */
+@media (min-width: 769px) {
+  #mobile-bottom-nav, .mobile-bottom-nav {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    pointer-events: none !important;
+  }
+  .chat-composer-wrap {
+    padding-bottom: 16px !important;
+  }
+}
+
+</style>
 </head>
 <body>
 
@@ -3811,7 +4167,7 @@
       <div class="land-nav-actions">
         <button id="btn-get-apk" class="btn-primary-pill" style="background:linear-gradient(135deg,#059669,#10b981);box-shadow:0 0 15px rgba(16,185,129,0.3)">📲 Install App / APK</button>
         <button id="nav-login" class="btn-login-link">Login</button>
-        <button id="nav-get-started" class="btn-primary-pill">Launch JARVIS ⚡</button>
+        <button id="nav-get-started" class="btn-primary-pill">Launch Operations Portal ⚡</button>
       </div>
       <button id="btn-landing-mobile-menu" class="btn-mobile-header-toggle" title="Menu">
         <span class="hamburger-bar"></span>
@@ -3830,7 +4186,7 @@
         </p>
 
         <div class="hero-actions">
-          <button id="hero-get-started" class="btn-hero-cta">Launch JARVIS Assistant <span>→</span></button>
+          <button id="hero-get-started" class="btn-hero-cta">Access Operations Console <span>→</span></button>
           <button id="hero-get-apk" class="btn-hero-demo" style="background:rgba(16,185,129,0.15);border-color:#10b981;color:#34d399"><span style="font-size:12px">📲</span> Install Android App (APK)</button>
           <button id="hero-quick-guide" class="btn-hero-demo" style="background:rgba(255,255,255,0.08);border-color:rgba(255,255,255,0.2);color:#fff"><span style="font-size:12px">🚀</span> Step-by-Step Guide</button>
           <button id="hero-watch-demo" class="btn-hero-demo"><span style="font-size:11px">▶</span> Try Multimodal Demo</button>
@@ -3856,7 +4212,7 @@
           <div class="robot-speech-bar">
             <div class="audio-wave"><span></span><span></span><span></span><span></span></div>
             <div class="robot-speech-text">
-              <strong>Hi! I'm JARVIS & SupportAI</strong>
+              <strong>OmniCare Operations Concierge</strong>
               <span>How can I assist you today?</span>
             </div>
           </div>
@@ -3886,7 +4242,7 @@
           <div class="feature-icon-box">🎬</div>
           <h3>AI Video Storyboarding</h3>
           <p>Generate cinematic video direction prompts for Sora, Runway Gen-3, and Luma with rendered preview frames and camera instructions.</p>
-          <button class="feature-action-btn" data-prompt="Animate a short video clip of Nagu the snake humanoid walking in an ancient temple">
+          <button class="feature-action-btn" data-prompt="Animate a 5-second cinematic clip of an autonomous delivery drone navigating through a futuristic city skyline">
             <span>Direct AI Video</span> <span>→</span>
           </button>
         </div>
@@ -3997,7 +4353,7 @@
 
         <div class="pricing-card popular">
           <div class="popular-pill">Most Popular</div>
-          <div class="pricing-tier-name">Pro Butler (JARVIS)</div>
+          <div class="pricing-tier-name">Enterprise Operations</div>
           <div class="pricing-price">$29 <span>/ month</span></div>
           <p style="font-size:13px;color:#94a3b8;margin-bottom:12px">For creators, power users, and small teams needing multimodal velocity.</p>
           <div class="pricing-features-list">
@@ -4028,7 +4384,7 @@
     <!-- LANDING FOOTER -->
     <footer class="land-footer">
       <div>
-        <strong style="color:#fff;font-family:var(--font-display);font-size:15px">SupportAI & JARVIS Neural Suite</strong>
+        <strong style="color:#fff;font-family:var(--font-display);font-size:15px">OmniCare Enterprise Operations Suite</strong>
         <p style="margin-top:4px;font-size:12px;color:#64748b">© 2026 SupportAI Systems Inc. All rights reserved.</p>
       </div>
       <div class="footer-status-pill">
@@ -4042,15 +4398,15 @@
   <!-- =========================================================
        VIEW 2: CHAT INTERFACE (ROCK-SOLID PINNED LAYOUT)
        ========================================================= -->
-    <div id="chat-view">
+          <div id="chat-view">
     <div class="chat-layout">
       <!-- Left Sidebar: Sleek Obsidian Enterprise -->
       <aside class="chat-sidebar" id="chat-sidebar">
         <div class="chat-sidebar-header-row">
           <div class="chat-sidebar-brand" style="margin-bottom:0">
-            <div class="brand-icon">✦</div>
-            <span>SupportAI</span>
-            <span class="brand-badge">Enterprise</span>
+            <div class="brand-icon" style="background:#2563eb;color:#fff;border-radius:8px">⚡</div>
+            <span>OmniCare</span>
+            <span class="brand-badge" style="background:#1e293b;color:#94a3b8;font-size:10px">Enterprise</span>
           </div>
           <button id="btn-close-sidebar-drawer" class="btn-drawer-close" title="Close Drawer">✕</button>
         </div>
@@ -4064,43 +4420,44 @@
         </button>
 
         <div class="sidebar-menu">
-          <button class="menu-item" id="nav-chat-home">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            <span>Home</span>
-          </button>
-          <button class="menu-item" id="nav-chat-guide" style="color:#38bdf8;font-weight:600">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-            <span>Quick Guide</span>
-          </button>
-          <button class="menu-item" id="nav-chat-tickets">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-            <span>My Tickets</span>
+          <button class="menu-item" id="nav-chat-dashboard" onclick="openCustomerPortal('orders')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Operations Dashboard</span>
           </button>
           <button class="menu-item active" id="nav-chat-ai">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-            <span>Chat with AI</span>
+            <span>Live Concierge Chat</span>
           </button>
-          <button class="menu-item" id="nav-chat-apk" style="color:#34d399">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-            <span>Install Android APK</span>
+          <button class="menu-item" id="nav-chat-orders" onclick="openCustomerPortal('orders')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+            <span>Orders & Deliveries</span>
           </button>
-          <button class="menu-item" id="nav-chat-admin">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
-            <span>Admin Dashboard</span>
+          <button class="menu-item" id="nav-chat-returns" onclick="openCustomerPortal('returns')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+            <span>Returns & Claims</span>
           </button>
-          <button class="menu-item" id="nav-chat-account">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-            <span>Account</span>
+          <button class="menu-item" id="nav-chat-tickets" onclick="openCustomerPortal('returns')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            <span>Support Tickets</span>
+          </button>
+          <button class="menu-item" id="nav-chat-stores" onclick="openCustomerPortal('merchants')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+            <span>Connected Stores</span>
+          </button>
+          <button class="menu-item" id="nav-chat-account" onclick="openCustomerPortal('security')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+            <span>Security & Vault</span>
           </button>
         </div>
 
-        <div class="sidebar-section-title">Recent Conversations</div>
-        <div id="session-list-box" class="session-list-box"></div>
+        <div class="sidebar-section-title">Active Conversations</div>
+        <div class="session-list-box" id="session-list-box"></div>
 
         <div class="sidebar-user">
-          <div class="user-avatar-badge" id="chat-user-avatar">U</div>
+          <div class="user-avatar-badge" id="chat-user-avatar">AC</div>
           <div class="user-info-text">
-            <div class="user-name-label" id="chat-user-email">user@supportai.com</div>
+            <span class="user-name-label" id="chat-user-name">Alex Carter</span>
+            <span class="user-email-label" id="chat-user-email">alex.carter@enterprise.com</span>
           </div>
           <button id="btn-chat-logout" class="btn-logout" title="Sign out">Log out</button>
         </div>
@@ -4110,44 +4467,37 @@
       <main class="chat-center">
         <!-- Top Bar with Model Switcher & Voice Toggle -->
         <header class="chat-topbar">
-          <div style="display:flex;align-items:center;gap:10px">
+          <div style="display:flex;align-items:center;gap:12px">
             <button id="btn-mobile-sidebar-toggle" class="btn-mobile-header-toggle" title="Open Navigation Drawer">
               <span class="hamburger-bar"></span>
               <span class="hamburger-bar"></span>
               <span class="hamburger-bar"></span>
             </button>
             <div class="topbar-info">
-              <h2>
-                <span>SupportAI & JARVIS</span>
-                <select id="model-selector" class="model-selector-pill" title="Select AI Engine (ChatGPT / Gemini / Jarvis)">
-                  <option value="gemini-3.5-flash-lite">✦ Gemini 3.5 Flash</option>
-                  <option value="gemini-3.8-flash">🚀 Gemini 3.8 Pro</option>
-                  <option value="gpt-4o">🧠 GPT-4o Omni</option>
-                  <option value="claude-3-5">🤖 Claude 3.5</option>
-                  <option value="jarvis-core">⚡ JARVIS Neural</option>
-                </select>
-              </h2>
-              <p>Enterprise Multi-Agent Swarm Orchestrator</p>
+              <div style="display:flex;align-items:center;gap:10px">
+                <h2 style="margin:0;font-size:16px;font-weight:700;color:#0f172a;letter-spacing:-0.2px">OmniCare Operations Console</h2>
+                <span class="portal-status-badge" style="background:#ecfdf5;color:#059669;border:1px solid #a7f3d0;font-size:11px;font-weight:600;padding:2px 8px;border-radius:12px;display:inline-flex;align-items:center;gap:4px">
+                  <span style="width:6px;height:6px;border-radius:50%;background:#10b981;display:inline-block"></span>
+                  5 Channels Synced
+                </span>
+              </div>
+              <p style="margin:2px 0 0 0;font-size:12px;color:#64748b">Unified Real-Time Order Management, Telemetry & Instant Returns</p>
             </div>
           </div>
 
           <div class="topbar-controls">
-            <button id="btn-topbar-apk" class="btn-primary-pill" title="Install Android App / Download APK">
-              <span>📲</span> <span>Mobile App</span>
-            </button>
-            <button id="btn-quick-guide" class="btn-quick-guide" title="Step-by-step Interactive User Guide">
-              <span>🚀</span> <span>Quick Guide</span>
-            </button>
-            <div id="jarvis-speaking-badge" class="jarvis-speaking-badge" title="Iron Man JARVIS Neural Voice Active (Click to audition/test)">
-              <div class="jarvis-mini-wave"><span></span><span></span><span></span></div>
-              <span class="badge-text">JARVIS Speaking</span>
+            <div style="display:flex;align-items:center;gap:8px;background:#f8fafc;border:1px solid #e2e8f0;padding:4px 10px;border-radius:20px;font-size:12px;color:#475569">
+              <span>🔒 256-Bit TLS</span>
             </div>
-            <button id="btn-voice-toggle" class="btn-voice-toggle active" title="Toggle Assistant Voice Output">
-              <span id="voice-icon">🔊</span> <span id="voice-label">Voice ON</span>
+            <button id="btn-open-dashboard" class="btn-topbar-portal" onclick="openCustomerPortal('orders')" style="display:inline-flex;align-items:center;gap:6px;background:#2563eb;color:#fff;border:none;padding:6px 14px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;transition:all 0.15s ease">
+              <span>📊 Operations Dashboard</span>
             </button>
-            <div class="chat-status-pill" title="Multi-Agent Swarm Active: Supervisor, Food Agent, Retail Agent, Multimodal Studio">
-              <span style="width:7px;height:7px;border-radius:50%;background:#10b981"></span>
-              <span>Swarm Ready</span>
+            <div id="topbar-user-badge" onclick="openCustomerPortal('security')" style="display:inline-flex;align-items:center;gap:8px;padding:4px 10px;border-radius:8px;border:1px solid #e2e8f0;background:#fff;cursor:pointer;transition:background 0.15s ease" title="View Customer Identity & Vault">
+              <div style="width:26px;height:26px;border-radius:50%;background:#0f172a;color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center">AC</div>
+              <div style="display:flex;flex-direction:column;text-align:left">
+                <span style="font-size:12px;font-weight:600;color:#0f172a" id="topbar-user-name">Alex Carter</span>
+                <span style="font-size:10px;color:#059669;font-weight:500">Verified Customer</span>
+              </div>
             </div>
           </div>
         </header>
@@ -4171,271 +4521,28 @@
             <div class="msg-body">
               <div class="welcome-card-box">
                 <div class="welcome-brand-row">
-                  <div style="width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,#0ea5e9,#4f46e5);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:800">✦</div>
-                  <h3>What would you like to achieve today?</h3>
+                  <div style="width:26px;height:26px;border-radius:6px;background:#2563eb;color:#fff;display:grid;place-items:center;font-size:13px;font-weight:800">⚡</div>
+                  <h3>Welcome to OmniCare Customer Operations</h3>
                 </div>
-                <p class="welcome-sub">SupportAI & JARVIS enterprise multi-agent swarm is online. Inquire about orders, synthesize 8K visual concepts, direct video sequences, or explore corporate documentation.</p>
+                <p class="welcome-sub">Your authenticated account (<strong>Alex Carter</strong>) is active. Manage orders across Amazon, Domino's, Swiggy, and Flipkart, initiate instant returns under the ₹5,000 policy guarantee, or track live carrier dispatches.</p>
                 
                 <div class="showcase-grid">
-                  <div class="showcase-tile" onclick="window.sendSuggestedPrompt && window.sendSuggestedPrompt('Generate an image of a sleek futuristic luxury smart watch on a dark obsidian podium with cyan rim lighting 8K')">
-                    <div class="showcase-tile-title"><span>🎨</span> 8K AI Image Studio</div>
-                    <div class="showcase-tile-desc">Render photorealistic product designs & concept art</div>
-                  </div>
-                  <div class="showcase-tile" onclick="window.sendSuggestedPrompt && window.sendSuggestedPrompt('Where is my order #ORD12345 on Amazon?')">
+                  <div class="showcase-tile" onclick="window.sendSuggestedPrompt && window.sendSuggestedPrompt('Where is my order #ORD-7821094 on Amazon?')">
                     <div class="showcase-tile-title"><span>📦</span> Live Order Telemetry</div>
-                    <div class="showcase-tile-desc">Track real-time carrier status across Amazon, Swiggy & Zomato</div>
+                    <div class="showcase-tile-desc">Track real-time carrier status across Amazon, Swiggy, Domino's & Flipkart</div>
                   </div>
-                  <div class="showcase-tile" onclick="window.sendSuggestedPrompt && window.sendSuggestedPrompt('Animate a 5-second cinematic clip of an autonomous delivery drone descending onto a city balcony')">
-                    <div class="showcase-tile-title"><span>🎬</span> Video Storyboards</div>
-                    <div class="showcase-tile-desc">Direct camera angles and cinematic scenes for Sora & Runway</div>
+                  <div class="showcase-tile" onclick="window.sendSuggestedPrompt && window.sendSuggestedPrompt('Order a Large Farmhouse Pizza and Stuffed Garlic Bread from Dominos to 42 MG Road Bangalore')">
+                    <div class="showcase-tile-title"><span>🍕</span> Autonomous Food Checkout</div>
+                    <div class="showcase-tile-desc">Instant ordering with itemized GST invoice, vehicle license & rider ETA</div>
                   </div>
-                  <div class="showcase-tile" onclick="window.sendSuggestedPrompt && window.sendSuggestedPrompt('Order a large hot pepperoni pizza and garlic breadsticks from Domino's to my address')">
-                    <div class="showcase-tile-title"><span>🛒</span> Autonomous Checkout</div>
-                    <div class="showcase-tile-desc">Itemized price calculation, tax computation, and receipts</div>
+                  <div class="showcase-tile" onclick="window.sendSuggestedPrompt && window.sendSuggestedPrompt('I want to return order #ORD-7821094 because it is defective')">
+                    <div class="showcase-tile-title"><span>🔄</span> Instant Policy Returns</div>
+                    <div class="showcase-tile-desc">Automated policy checks: claims under ₹5,000 auto-approved instantly</div>
                   </div>
-                </div>
-
-                <div class="welcome-tour-cta">
-                  <span>💡 <strong>New to the system?</strong> Master every multimodal capability in seconds with our interactive guide.</span>
-                  <button type="button" id="btn-welcome-guide">Launch Quick Guide →</button>
-                </div>
-              </div>
-              <div class="msg-time" style="margin-top:6px">Just now</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Fixed Bottom Composer Area (Never slides off screen & Spacious) -->
-        <div class="composer-container">
-          <!-- Quick Action Buttons Toolbar -->
-          <div class="quick-tools-bar">
-            <button class="btn-quick-action" id="btn-quick-guide-bar" style="background:#fef3c7;border-color:#fcd34d;color:#b45309;font-weight:700" title="Interactive Step-by-Step User Guide">
-              🚀 Quick Guide
-            </button>
-            <button class="btn-quick-action" id="btn-quick-image-studio" style="background:#eff6ff;border-color:#93c5fd;color:#2563eb;font-weight:700" title="Open AI Image Studio & Prompt Fixer">
-              ✨ Image Studio
-            </button>
-            <button class="btn-quick-action" id="btn-quick-generate-img" data-prompt="Generate an image of a sleek futuristic luxury electric supercar in neon studio lighting 8K">
-              🎨 Generate 8K Image
-            </button>
-            <button class="btn-quick-action" data-prompt="Animate a 5-second cinematic clip of an autonomous delivery drone gliding across a futuristic city skyline">
-              🎬 Generate Video
-            </button>
-            <button class="btn-quick-action" data-prompt="Where is my order #ORD12345 on Amazon?">
-              📦 Track Order
-            </button>
-            <button class="btn-quick-action" data-prompt="Order a large hot pepperoni pizza and garlic breadsticks from Domino's">
-              🛒 Place Food Order
-            </button>
-            <button class="btn-quick-action" data-prompt="Search the web for the latest artificial intelligence breakthroughs today">
-              🔍 Web Search
-            </button>
-            <button class="btn-quick-action" id="btn-quick-tickets">
-              🎫 My Tickets
-            </button>
-            <button class="btn-quick-action" id="btn-quick-account">
-              👤 Account
-            </button>
-          </div>
-
-          <!-- Attachment Preview Chip -->
-          <div id="composer-attachment-preview" class="composer-attachment-preview" style="display:none">
-            <span id="attachment-name">📎 Attached File</span>
-            <button type="button" id="btn-clear-attachment" class="btn-remove-attachment" title="Remove attachment">✕</button>
-          </div>
-          <input type="file" id="composer-file-input" style="display:none" accept="image/*,.pdf,.txt,.json,.csv,.doc,.docx">
-
-          <!-- Input Composer Form (Generous, Comfortable, Modern) -->
-          <form id="composer-form" class="composer-box">
-            <button type="button" id="btn-attach" class="btn-composer-icon" title="Attach image / file">📎</button>
-            <button type="button" id="btn-mic" class="btn-composer-icon btn-mic" title="Voice Input (Speech-to-Text)">🎙️</button>
-            <textarea id="message-input" class="composer-input" rows="1" placeholder="Ask Jarvis, describe an image, track an order, or draft a request..." aria-label="Type message"></textarea>
-            <button type="submit" id="btn-send" class="btn-send" title="Send message (Enter)" aria-label="Send message">➤</button>
-          </form>
-          <div class="composer-tip">Press <strong>Enter</strong> to send, <strong>Shift + Enter</strong> for a new line · 🎙️ Voice & 🔊 Speech enabled · Swarm Active</div>
-        </div>
-      </main>
-
-      <!-- Right Sidebar: Suggested Questions & Fast Links -->
-      <aside class="chat-right-panel">
-        <div>
-          <div class="right-section-title">
-            <span>✨</span> Quick Actions
-          </div>
-          <div class="suggested-list">
-            <button class="btn-suggested-question" data-text="Track my order #ORD12345 on Amazon">📦 Track my order</button>
-            <button class="btn-suggested-question" data-text="Order hot pepperoni pizza from Domino's to my address">🍕 Order Domino's Pizza</button>
-            <button class="btn-suggested-question" data-text="Generate an 8K photorealistic concept visual of a high-tech smart wearable device on a marble surface with studio lighting">🎨 Generate 8K Asset</button>
-            <button class="btn-suggested-question" data-text="Animate a 5-second cinematic clip of an autonomous delivery drone navigating through a smart city skyline">🎬 Cinematic Video Clip</button>
-            <button class="btn-suggested-question" data-text="What is the refund and return policy for damaged goods?">↩️ Refund & Return Policy</button>
-            <button class="btn-suggested-question" data-text="I would like to speak to a senior human support specialist.">👤 Contact Human Agent</button>
-          </div>
-        </div>
-
-        <div>
-          <div class="right-section-title">
-            <span>📖</span> Help & Documentation
-          </div>
-          <div class="articles-list">
-            <a class="article-item" data-text="How do I track my order step-by-step?">
-              <span>Order Tracking SLA Guide</span>
-              <span style="color:#94a3b8">›</span>
-            </a>
-            <a class="article-item" data-text="Explain the return and refund policy in detail.">
-              <span>Return & Refund Policies</span>
-              <span style="color:#94a3b8">›</span>
-            </a>
-            <a class="article-item" data-text="What is covered under the 1-year product warranty?">
-              <span>Hardware Warranty Terms</span>
-              <span style="color:#94a3b8">›</span>
-            </a>
-            <a class="article-item" data-text="What are standard shipping times and carriers?">
-              <span>Global Carrier Networks</span>
-              <span style="color:#94a3b8">›</span>
-            </a>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </div>
-
-
-  <!-- =========================================================
-       VIEW 3: ADMIN DASHBOARD
-       ========================================================= -->
-  <div id="admin-view">
-    <div class="admin-layout">
-      <aside class="admin-sidebar" id="admin-sidebar">
-        <div class="chat-sidebar-header-row" style="margin-bottom:20px">
-          <div class="admin-sidebar-brand" style="margin-bottom:0">
-            <div class="brand-icon" style="width:32px;height:32px;font-size:16px">✦</div>
-            <span>SupportAI Admin</span>
-          </div>
-          <button id="btn-close-admin-drawer" class="btn-drawer-close" style="color:#94a3b8" title="Close Drawer">✕</button>
-        </div>
-
-        <div class="admin-nav-list">
-          <button class="admin-nav-item active" data-tab="dashboard"><span>📊</span> Dashboard</button>
-          <button class="admin-nav-item" data-tab="tickets"><span>🎫</span> Tickets</button>
-          <button class="admin-nav-item" data-tab="agents"><span>🤖</span> AI Agents</button>
-          <button class="admin-nav-item" data-tab="customers"><span>👥</span> Customers</button>
-          <button class="admin-nav-item" data-tab="knowledge"><span>📖</span> Knowledge Base</button>
-          <button class="admin-nav-item" data-tab="analytics"><span>📈</span> Analytics</button>
-          <button class="admin-nav-item" data-tab="settings"><span>⚙️</span> Settings</button>
-        </div>
-
-        <div style="margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08)">
-          <button id="btn-admin-switch-chat" class="btn-primary-pill" style="width:100%;justify-content:center;border-radius:10px">
-            💬 Open Chat & JARVIS
-          </button>
-        </div>
-      </aside>
-
-      <main class="admin-main">
-        <div class="admin-header">
-          <div style="display:flex;align-items:center;gap:12px">
-            <button id="btn-admin-mobile-toggle" class="btn-mobile-header-toggle" style="background:#1e293b;border-color:rgba(255,255,255,0.15)" title="Open Admin Menu">
-              <span class="hamburger-bar" style="background:#fff"></span>
-              <span class="hamburger-bar" style="background:#fff"></span>
-              <span class="hamburger-bar" style="background:#fff"></span>
-            </button>
-            <div class="admin-title-box">
-              <h1 id="admin-page-title">Admin Dashboard</h1>
-            </div>
-          </div>
-          <div class="admin-header-right">
-            <div class="date-filter-pill" id="admin-date-filter" style="cursor:pointer" title="Click to filter period">
-              <span>📅</span>
-              <span id="admin-date-label">Last 30 Days ▾</span>
-            </div>
-            <div class="admin-profile">
-              <div class="profile-avatar">NS</div>
-              <div style="font-size:12px">
-                <strong style="display:block;color:#fff">Nirmal Sharma</strong>
-                <span style="color:#94a3b8">Administrator</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 1. DASHBOARD PANEL -->
-        <div id="admin-panel-dashboard" class="admin-panel active">
-          <div class="kpi-grid">
-            <div class="kpi-card">
-              <div class="kpi-icon-box icon-blue">👤</div>
-              <div class="kpi-info"><h4 id="kpi-tickets-val">1,245</h4><p>Total Tickets</p><span class="kpi-trend">↑ 12%</span></div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-icon-box icon-green">⏱️</div>
-              <div class="kpi-info"><h4 id="kpi-res-val">92%</h4><p>Resolution Rate</p><span class="kpi-trend">↑ 5%</span></div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-icon-box icon-orange">⏳</div>
-              <div class="kpi-info"><h4 id="kpi-time-val">3.2 min</h4><p>Avg. Response Time</p><span class="kpi-trend">↓ 40%</span></div>
-            </div>
-            <div class="kpi-card">
-              <div class="kpi-icon-box icon-purple">⭐</div>
-              <div class="kpi-info"><h4 id="kpi-rating-val">4.6/5</h4><p>Customer Rating</p><span class="kpi-trend">↑ 8%</span></div>
-            </div>
-          </div>
-
-          <div class="charts-row">
-            <div class="chart-card">
-              <div class="chart-header">
-                <h3>Tickets Over Time</h3>
-                <span style="font-size:11px;color:#94a3b8;background:#1e293b;padding:3px 8px;border-radius:6px">Last 30 Days</span>
-              </div>
-              <div class="spline-svg-container">
-                <svg class="spline-svg" viewBox="0 0 600 170" preserveAspectRatio="none">
-                  <defs>
-                    <linearGradient id="areaGradient" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="0%" stop-color="#2563eb" stop-opacity="0.45"/>
-                      <stop offset="100%" stop-color="#2563eb" stop-opacity="0.0"/>
-                    </linearGradient>
-                  </defs>
-                  <line x1="40" y1="30" x2="580" y2="30" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
-                  <line x1="40" y1="70" x2="580" y2="70" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
-                  <line x1="40" y1="110" x2="580" y2="110" stroke="rgba(255,255,255,0.06)" stroke-dasharray="4"/>
-                  <line x1="40" y1="145" x2="580" y2="145" stroke="rgba(255,255,255,0.06)"/>
-
-                  <text x="25" y="34" fill="#64748b" font-size="10">400</text>
-                  <text x="25" y="74" fill="#64748b" font-size="10">300</text>
-                  <text x="25" y="114" fill="#64748b" font-size="10">200</text>
-                  <text x="25" y="148" fill="#64748b" font-size="10">100</text>
-
-                  <path d="M 50 145 C 90 135, 130 105, 170 115 C 220 130, 260 75, 310 90 C 360 105, 400 40, 450 70 C 500 95, 540 55, 570 65 L 570 145 L 50 145 Z" fill="url(#areaGradient)"/>
-                  <path d="M 50 145 C 90 135, 130 105, 170 115 C 220 130, 260 75, 310 90 C 360 105, 400 40, 450 70 C 500 95, 540 55, 570 65" fill="none" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
-
-                  <text x="50" y="162" fill="#64748b" font-size="9">1 Sep</text>
-                  <text x="135" y="162" fill="#64748b" font-size="9">5 Sep</text>
-                  <text x="220" y="162" fill="#64748b" font-size="9">10 Sep</text>
-                  <text x="310" y="162" fill="#64748b" font-size="9">15 Sep</text>
-                  <text x="400" y="162" fill="#64748b" font-size="9">20 Sep</text>
-                  <text x="490" y="162" fill="#64748b" font-size="9">25 Sep</text>
-                  <text x="560" y="162" fill="#64748b" font-size="9">30 Sep</text>
-                </svg>
-              </div>
-            </div>
-
-            <div class="chart-card">
-              <div class="chart-header">
-                <h3>Ticket Status</h3>
-              </div>
-              <div class="donut-layout">
-                <div class="donut-svg-box">
-                  <svg viewBox="0 0 100 100" width="100%" height="100%">
-                    <circle cx="50" cy="50" r="40" fill="transparent" stroke="#06b6d4" stroke-width="14" stroke-dasharray="171 251.3" transform="rotate(-90 50 50)"/>
-                    <circle cx="50" cy="50" r="40" fill="transparent" stroke="#14b8a6" stroke-width="14" stroke-dasharray="45.2 251.3" stroke-dashoffset="-171" transform="rotate(-90 50 50)"/>
-                    <circle cx="50" cy="50" r="40" fill="transparent" stroke="#f59e0b" stroke-width="14" stroke-dasharray="25.1 251.3" stroke-dashoffset="-216.2" transform="rotate(-90 50 50)"/>
-                    <circle cx="50" cy="50" r="40" fill="transparent" stroke="#ef4444" stroke-width="14" stroke-dasharray="10 251.3" stroke-dashoffset="-241.3" transform="rotate(-90 50 50)"/>
-                    <text x="50" y="53" text-anchor="middle" fill="#fff" font-size="11" font-weight="700">1,245</text>
-                  </svg>
-                </div>
-                <div class="donut-legend">
-                  <div class="legend-row"><div class="legend-dot-label"><span class="legend-dot dot-cyan"></span><span>Resolved</span></div><strong>68%</strong></div>
-                  <div class="legend-row"><div class="legend-dot-label"><span class="legend-dot dot-teal"></span><span>In Progress</span></div><strong>18%</strong></div>
-                  <div class="legend-row"><div class="legend-dot-label"><span class="legend-dot dot-orange"></span><span>Open</span></div><strong>10%</strong></div>
-                  <div class="legend-row"><div class="legend-dot-label"><span class="legend-dot dot-red"></span><span>Escalated</span></div><strong>4%</strong></div>
+                  <div class="showcase-tile" onclick="openCustomerPortal('stores')">
+                    <div class="showcase-tile-title"><span>🌐</span> Merchant Bridge Engine</div>
+                    <div class="showcase-tile-desc">Direct synchronization with Amazon, Domino's, Swiggy, and Flipkart</div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -4542,7 +4649,7 @@
           <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:24px">
             <div style="background:#111827;border:1px solid rgba(255,255,255,0.08);border-radius:18px;padding:20px">
               <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
-                <strong style="color:#fff;font-size:14px">⚡ JARVIS Core</strong>
+                <strong style="color:#fff;font-size:14px">⚡ OmniCore Engine</strong>
                 <span style="background:rgba(16,185,129,0.2);color:#10b981;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700">Online</span>
               </div>
               <p style="font-size:12px;color:#94a3b8;margin-bottom:8px">Model: <b style="color:#fff">Gemini 3.5 Flash Lite</b></p>
@@ -4676,33 +4783,60 @@
   <!-- =========================================================
        AUTH MODAL
        ========================================================= -->
-  <div id="auth-modal" class="auth-overlay">
+        <div id="auth-modal" class="auth-overlay">
     <div class="auth-modal">
-      <div class="brand-logo" style="margin-bottom:20px">
-        <div class="brand-icon">✦</div>
-        <span>SupportAI</span>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+        <div class="brand-logo" style="margin-bottom:0">
+          <div class="brand-icon" style="background:linear-gradient(135deg,#0ea5e9,#4f46e5);color:#fff">✦</div>
+          <span style="font-weight:800;letter-spacing:-.4px">SupportHub</span>
+        </div>
+        <span class="auth-trust-badge">🔒 256-Bit TLS Vault</span>
       </div>
-      <h2 class="auth-title" id="auth-title">Welcome back</h2>
-      <p class="auth-sub" id="auth-sub">Sign in to access your AI Assistant & history.</p>
+
+      <h2 class="auth-title" id="auth-title" style="font-size:20px;font-weight:800;color:#0f172a;margin:0 0 6px">Customer Sign In</h2>
+      <p class="auth-sub" id="auth-sub" style="font-size:13px;color:#64748b;margin:0 0 16px">Access your verified customer portal, order tracking, and returns dashboard.</p>
+
+      <!-- Instant 1-Click Demo Login for Client Review -->
+      <button type="button" id="btn-quick-demo-auth" class="btn-quick-demo-login">
+        <span>⚡</span> <span>Access as Verified Customer (Alex Carter)</span>
+      </button>
+
+      <div class="auth-divider"><span>or sign in with credentials</span></div>
 
       <form id="auth-form">
         <div class="auth-field">
-          <label for="auth-email">Email</label>
-          <input id="auth-email" type="email" placeholder="you@company.com" required autocomplete="email">
+          <label for="auth-email">Customer Email Address</label>
+          <input id="auth-email" type="email" placeholder="alex.carter@enterprise.com" required autocomplete="email">
         </div>
         <div class="auth-field">
-          <label for="auth-password">Password</label>
-          <input id="auth-password" type="password" placeholder="••••••••" required minlength="8" autocomplete="current-password">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <label for="auth-password">Password</label>
+            <span style="font-size:11px;color:#2563eb;cursor:pointer" id="btn-forgot-pw">Forgot?</span>
+          </div>
+          <input id="auth-password" type="password" placeholder="••••••••••••" required minlength="8" autocomplete="current-password">
+        </div>
+
+        <div style="display:flex;align-items:center;gap:8px;margin:12px 0 16px;font-size:12px;color:#475569">
+          <input type="checkbox" id="auth-remember-me" checked style="cursor:pointer">
+          <label for="auth-remember-me" style="cursor:pointer">Remember this trusted device for 30 days</label>
         </div>
 
         <div id="auth-error" class="auth-error"></div>
-        <button type="submit" id="btn-auth-submit" class="btn-auth-submit">Sign in</button>
+        <button type="submit" id="btn-auth-submit" class="btn-auth-submit" style="background:#2563eb;color:#fff;border-radius:10px;padding:12px;font-weight:700">Sign in to Customer Portal</button>
       </form>
 
-      <p class="auth-switch-text">
-        <span id="auth-switch-prompt">Don't have an account?</span>
-        <button id="btn-auth-toggle" class="btn-auth-toggle">Create account</button>
+      <p class="auth-switch-text" style="margin-top:14px">
+        <span id="auth-switch-prompt">Need a new customer account?</span>
+        <button id="btn-auth-toggle" class="btn-auth-toggle" style="color:#2563eb;font-weight:700">Create account</button>
       </p>
+
+      <div class="auth-security-footer">
+        <span>🛡️ SOC-2 Certified</span>
+        <span>•</span>
+        <span>💳 PCI-DSS Level 1</span>
+        <span>•</span>
+        <span>🔒 Zero-Log Policy</span>
+      </div>
     </div>
   </div>
 
@@ -4780,99 +4914,326 @@
   <!-- =========================================================
        ACCOUNT & PREFERENCES MODAL
        ========================================================= -->
-  <div id="account-modal" class="app-modal-overlay">
+        <div id="account-modal" class="app-modal-overlay">
     <div class="app-modal-box">
-      <div class="app-modal-header">
-        <h3>👤 Account & System Settings</h3>
-        <button id="btn-close-account" class="btn-modal-close" title="Close">✕</button>
-      </div>
-      <div class="app-modal-body">
-        <div style="display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:1px solid #e2e8f0">
-          <div class="user-avatar-badge" id="account-avatar-large" style="width:54px;height:54px;font-size:20px;border-radius:50%;background:#2563eb;color:#fff;display:grid;place-items:center;font-weight:800">U</div>
+      <div class="app-modal-header" style="background:#090d16;color:#ffffff;padding:16px 20px;border-bottom:1px solid rgba(255,255,255,0.08)">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,#0ea5e9,#4f46e5);display:grid;place-items:center;color:#fff;font-weight:800;font-size:14px">✦</div>
           <div>
-            <strong id="account-email-display" style="font-size:15px;color:#0f172a;display:block">user@supportai.com</strong>
-            <span style="font-size:12px;color:#10b981;font-weight:600">● Pro Butler Active · All Tools Enabled</span>
+            <h3 style="margin:0;font-size:15px;font-weight:700;color:#ffffff">Customer Operations & Security Portal</h3>
+            <span style="font-size:11px;color:#94a3b8">Personal Order Management, Live Dispatches & Returns</span>
+          </div>
+        </div>
+        <button id="btn-close-account" class="btn-modal-close" style="color:#94a3b8" title="Close">✕</button>
+      </div>
+
+      <!-- Portal Tabs Header -->
+      <nav class="portal-tab-bar" id="portal-tab-bar">
+        <button type="button" class="portal-tab-btn active" data-tab="orders">
+          <span>📦</span> <span>Orders & Deliveries (4)</span>
+        </button>
+        <button type="button" class="portal-tab-btn" data-tab="returns">
+          <span>↩️</span> <span>Returns & Claims (2)</span>
+        </button>
+        <button type="button" class="portal-tab-btn" data-tab="merchants">
+          <span>🌐</span> <span>Connected Stores</span>
+        </button>
+        <button type="button" class="portal-tab-btn" data-tab="security">
+          <span>🛡️</span> <span>Account & Security</span>
+        </button>
+        <button type="button" class="portal-tab-btn" data-tab="preferences">
+          <span>⚙️</span> <span>Preferences</span>
+        </button>
+      </nav>
+
+      <div class="app-modal-body" style="padding:0;max-height:calc(88vh - 120px);overflow-y:auto">
+        <!-- TAB 1: ORDERS & DELIVERIES -->
+        <div class="portal-tab-content active" id="tab-orders">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <h4 style="margin:0 0 2px;font-size:14px;color:#0f172a;font-weight:700">Active Shipments & Food Deliveries</h4>
+              <p style="margin:0;font-size:12px;color:#64748b">Real-time status synced across Amazon, Domino's, Flipkart & Swiggy.</p>
+            </div>
+            <button type="button" class="btn-portal-action primary" onclick="closeAccount(); openQuickOrderModal();">
+              <span>＋</span> <span>Place New Order</span>
+            </button>
+          </div>
+
+          <!-- Order 1: Amazon -->
+          <div class="order-manage-card">
+            <div class="order-card-top">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span class="merchant-tag merchant-amazon">Amazon Logistics</span>
+                <strong style="font-size:13px;color:#0f172a">#ORD-7821094</strong>
+              </div>
+              <span class="order-status-badge status-transit">
+                <span style="width:6px;height:6px;border-radius:50%;background:#2563eb"></span>
+                <span>Out for Delivery · ETA 4:30 PM</span>
+              </span>
+            </div>
+            <div class="order-details-row">
+              <div>
+                <strong style="display:block;font-size:13px;color:#0f172a">Sony WH-1000XM5 Wireless Headphones</strong>
+                <span style="font-size:11.5px;color:#64748b">Obsidian Black · High-Res Audio · Priority Prime</span>
+              </div>
+              <div>
+                <span style="display:block;font-size:11px;color:#64748b">Payment</span>
+                <strong style="font-size:12.5px;color:#0f172a">₹24,900.00 (Visa)</strong>
+              </div>
+              <div>
+                <span style="display:block;font-size:11px;color:#64748b">Courier</span>
+                <span style="font-size:12px;color:#0f172a">DL-1C-AA-5582</span>
+              </div>
+            </div>
+            <div class="order-actions-bar">
+              <button type="button" class="btn-portal-action primary" onclick="closeAccount(); openQuickOrderModal();">
+                <span>📡</span> <span>Track Live GPS Telemetry</span>
+              </button>
+              <button type="button" class="btn-portal-action" onclick="closeAccount(); window.sendSuggestedPrompt && openQuickReturnModal()">
+                <span>↩️</span> <span>Request Return / Refund</span>
+              </button>
+              <button type="button" class="btn-portal-action" onclick="alert('Tax Invoice #INV-2026-7821 verified and dispatched to your email.')">
+                <span>🧾</span> <span>Invoice</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Order 2: Domino's Pizza -->
+          <div class="order-manage-card">
+            <div class="order-card-top">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span class="merchant-tag merchant-dominos">Domino's Direct</span>
+                <strong style="font-size:13px;color:#0f172a">#ORD-9102834</strong>
+              </div>
+              <span class="order-status-badge status-transit" style="background:#ecfdf5;color:#059669;border-color:#a7f3d0">
+                <span style="width:6px;height:6px;border-radius:50%;background:#10b981"></span>
+                <span>Rider on Way (12 mins)</span>
+              </span>
+            </div>
+            <div class="order-details-row">
+              <div>
+                <strong style="display:block;font-size:13px;color:#0f172a">1x Farmhouse Pizza + 1x Garlic Breadsticks</strong>
+                <span style="font-size:11.5px;color:#64748b">Fresh Hand Tossed · Extra Dip · 2x Coke Zero</span>
+              </div>
+              <div>
+                <span style="display:block;font-size:11px;color:#64748b">Payment</span>
+                <strong style="font-size:12.5px;color:#0f172a">₹789.00 (UPI AutoPay)</strong>
+              </div>
+              <div>
+                <span style="display:block;font-size:11px;color:#64748b">Delivery Partner</span>
+                <span style="font-size:12px;color:#0f172a">Amit S. (KA-05-AB-4182)</span>
+              </div>
+            </div>
+            <div class="order-actions-bar">
+              <button type="button" class="btn-portal-action primary" onclick="closeAccount(); openQuickOrderModal();">
+                <span>📡</span> <span>Track Rider Live Location</span>
+              </button>
+              <button type="button" class="btn-portal-action" onclick="closeAccount(); window.sendSuggestedPrompt && window.sendSuggestedPrompt('Domino\'s order #ORD-9102834 arrived cold, I need a replacement or refund')">
+                <span>⚠️</span> <span>Report Quality Issue</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- Order 3: Flipkart -->
+          <div class="order-manage-card">
+            <div class="order-card-top">
+              <div style="display:flex;align-items:center;gap:8px">
+                <span class="merchant-tag merchant-flipkart">Flipkart Express</span>
+                <strong style="font-size:13px;color:#0f172a">#ORD-3291048</strong>
+              </div>
+              <span class="order-status-badge status-delivered">
+                <span>✓</span>
+                <span>Delivered · 30-Day Return Open</span>
+              </span>
+            </div>
+            <div class="order-details-row">
+              <div>
+                <strong style="display:block;font-size:13px;color:#0f172a">Smart Home Automation Hub & Sensors</strong>
+                <span style="font-size:11.5px;color:#64748b">Zigbee 3.0 · Delivered Yesterday</span>
+              </div>
+              <div>
+                <span style="display:block;font-size:11px;color:#64748b">Total Paid</span>
+                <strong style="font-size:12.5px;color:#0f172a">₹4,499.00</strong>
+              </div>
+              <div>
+                <span style="display:block;font-size:11px;color:#64748b">Return Window</span>
+                <span style="font-size:12px;color:#059669;font-weight:600">28 Days Remaining</span>
+              </div>
+            </div>
+            <div class="order-actions-bar">
+              <button type="button" class="btn-portal-action" onclick="closeAccount(); window.sendSuggestedPrompt && window.sendSuggestedPrompt('I want to process a return and refund for Flipkart order #ORD-3291048')">
+                <span>↩️</span> <span>Initiate Automated Return</span>
+              </button>
+              <button type="button" class="btn-portal-action" onclick="alert('Flipkart invoice #FK-9921 downloaded.')">
+                <span>🧾</span> <span>Download Invoice</span>
+              </button>
+            </div>
           </div>
         </div>
 
-        <div>
-          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
-            <h4 style="font-size:13px;font-weight:700;color:#0f172a;margin:0">Iron Man JARVIS Voice Module</h4>
-            <span class="jarvis-voice-badge-tag">⚡ Paul Bettany Model</span>
+        <!-- TAB 2: RETURNS & CLAIMS -->
+        <div class="portal-tab-content" id="tab-returns">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <div>
+              <h4 style="margin:0 0 2px;font-size:14px;color:#0f172a;font-weight:700">Returns & Dispute Claims Center</h4>
+              <p style="margin:0;font-size:12px;color:#64748b">Deterministic policy evaluation with instant bank refund dispatches.</p>
+            </div>
+            <button type="button" class="btn-portal-action primary" onclick="closeAccount(); openQuickOrderModal();">
+              <span>＋</span> <span>File Return Claim</span>
+            </button>
           </div>
-          
-          <div class="jarvis-voice-panel">
-            <div style="display:flex;align-items:center;justify-content:space-between">
+
+          <div class="order-manage-card" style="border-left:4px solid #10b981">
+            <div class="order-card-top">
               <div>
-                <strong style="font-size:12px;display:block;color:#1e293b">JARVIS Voice Output</strong>
-                <span style="font-size:11px;color:#64748b">Speak assistant responses with authentic neural voice</span>
+                <strong style="font-size:13px;color:#0f172a">Claim #TICK-7620 · Flipkart Hub #ORD-3291048</strong>
+                <span style="display:block;font-size:11.5px;color:#64748b">Defective Sensor Unit · Return Authorization Verified</span>
+              </div>
+              <span class="order-status-badge status-delivered" style="font-weight:700">
+                <span>✓ Auto-Approved</span>
+              </span>
+            </div>
+            <p style="margin:6px 0 0;font-size:12px;color:#475569;line-height:1.5">
+              Automated threshold policy validated (amount ₹4,499 &lt; ₹5,000 threshold). Source account refund scheduled for credit within 2-4 business hours.
+            </p>
+          </div>
+
+          <div class="order-manage-card" style="border-left:4px solid #f59e0b">
+            <div class="order-card-top">
+              <div>
+                <strong style="font-size:13px;color:#0f172a">Claim #TICK-8021 · Amazon Package #ORD-7821094</strong>
+                <span style="display:block;font-size:11.5px;color:#64748b">Delayed Package Investigation & Carrier Re-routing</span>
+              </div>
+              <span class="order-status-badge status-transit" style="background:#fef3c7;color:#b45309;border-color:#fde68a">
+                <span>⏳ Specialist Review Active</span>
+              </span>
+            </div>
+            <p style="margin:6px 0 0;font-size:12px;color:#475569;line-height:1.5">
+              Assigned to Senior Order Specialist AI & Logistics Fleet 14. Target SLA: resolution within 1 hour.
+            </p>
+          </div>
+        </div>
+
+        <!-- TAB 3: CONNECTED STORES & INTEGRATIONS -->
+        <div class="portal-tab-content" id="tab-merchants">
+          <div style="margin-bottom:4px">
+            <h4 style="margin:0 0 2px;font-size:14px;color:#0f172a;font-weight:700">Connected Merchant Platforms</h4>
+            <p style="margin:0;font-size:12px;color:#64748b">Autonomous bridges managing orders, menus, tracking & returns in real-time.</p>
+          </div>
+
+          <div class="merchant-grid">
+            <div class="merchant-bridge-card">
+              <div class="merchant-bridge-icon" style="color:#ea580c">📦</div>
+              <div class="merchant-bridge-info">
+                <h5>Amazon Marketplace</h5>
+                <p>Order API, Prime Delivery Telemetry & Returns</p>
+                <span class="merchant-sync-pill">● API Connected · Webhook Live</span>
+              </div>
+            </div>
+
+            <div class="merchant-bridge-card">
+              <div class="merchant-bridge-icon" style="color:#1d4ed8">🍕</div>
+              <div class="merchant-bridge-info">
+                <h5>Domino's Pulse Network</h5>
+                <p>Live Kitchen Status, Menu & Courier GPS</p>
+                <span class="merchant-sync-pill">● Kitchen Dispatch Active</span>
+              </div>
+            </div>
+
+            <div class="merchant-bridge-card">
+              <div class="merchant-bridge-icon" style="color:#f97316">🛵</div>
+              <div class="merchant-bridge-info">
+                <h5>Swiggy Fleet Engine</h5>
+                <p>Real-time Driver Geolocation & Restaurant POS</p>
+                <span class="merchant-sync-pill">● Telemetry Stream Online</span>
+              </div>
+            </div>
+
+            <div class="merchant-bridge-card">
+              <div class="merchant-bridge-icon" style="color:#4338ca">🛍️</div>
+              <div class="merchant-bridge-info">
+                <h5>Flipkart Logistics</h5>
+                <p>SuperMart Catalog, Order Invoicing & Returns</p>
+                <span class="merchant-sync-pill">● Returns Gateway Active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: ACCOUNT & SECURITY -->
+        <div class="portal-tab-content" id="tab-security">
+          <div style="display:flex;align-items:center;gap:16px;padding-bottom:16px;border-bottom:1px solid #e2e8f0">
+            <div class="user-avatar-badge" id="account-avatar-large" style="width:54px;height:54px;font-size:20px;border-radius:12px;background:linear-gradient(135deg,#0ea5e9,#4f46e5);color:#fff;display:grid;place-items:center;font-weight:800">U</div>
+            <div style="flex:1">
+              <div style="display:flex;align-items:center;gap:8px">
+                <strong id="account-email-display" style="font-size:16px;color:#0f172a">alex.carter@enterprise.com</strong>
+                <span class="merchant-sync-pill" style="font-size:10px">✓ Verified Customer</span>
+              </div>
+              <span style="font-size:12px;color:#64748b">Session Protocol: TLS 1.3 · AES-256 Encrypted</span>
+            </div>
+            <button id="btn-account-logout" class="btn-portal-action" style="color:#ef4444;border-color:#fecaca;background:#fff5f5">Log Out</button>
+          </div>
+
+          <div>
+            <h5 style="margin:0 0 8px;font-size:13px;color:#0f172a;font-weight:700">Security Credentials & Tokens</h5>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px;font-family:var(--font-code);font-size:11.5px;color:#334155;display:flex;align-items:center;justify-content:space-between">
+              <div>
+                <span style="color:#64748b;display:block;margin-bottom:2px">ACTIVE JWT SECURITY TOKEN</span>
+                <span id="account-token-display">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9... (256-bit encrypted)</span>
+              </div>
+              <button type="button" class="btn-portal-action" onclick="navigator.clipboard.writeText(state.userToken || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'); alert('Session token copied securely.')">Copy</button>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px">
+              <strong style="font-size:12px;display:block;color:#0f172a">Two-Factor Authentication</strong>
+              <span style="font-size:11.5px;color:#64748b">Biometric & Authenticator Protection: Active</span>
+            </div>
+            <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px">
+              <strong style="font-size:12px;display:block;color:#0f172a">Compliance Standard</strong>
+              <span style="font-size:11.5px;color:#64748b">SOC-2 Type II & GDPR Vault Enforced</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: SYSTEM & PREFERENCES -->
+        <div class="portal-tab-content" id="tab-preferences">
+          <div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+              <div>
+                <strong style="font-size:13px;display:block;color:#0f172a">Neural Voice Output</strong>
+                <span style="font-size:11.5px;color:#64748b">Enable natural British audio synthesis for order and tracking updates</span>
               </div>
               <input type="checkbox" id="account-voice-toggle" checked style="width:18px;height:18px;cursor:pointer">
             </div>
 
-            <div class="jarvis-select-row">
-              <div class="jarvis-control-item">
-                <label for="jarvis-voice-engine">Voice Model</label>
-                <select id="jarvis-voice-engine">
-                  <option value="neural" selected>Authentic JARVIS (Neural en-GB-Ryan)</option>
-                  <option value="browser">Browser Speech Synthesis (Local)</option>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+              <div>
+                <label style="font-size:11px;font-weight:600;color:#64748b;display:block;margin-bottom:4px">Speech Engine</label>
+                <select id="jarvis-voice-engine" style="width:100%;padding:6px 10px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;font-size:12px">
+                  <option value="neural" selected>Neural High-Fidelity Voice</option>
+                  <option value="browser">Browser Native Speech</option>
                 </select>
               </div>
-
-              <div class="jarvis-control-item">
-                <label for="jarvis-acoustic-mode">Acoustic HUD Profile</label>
-                <select id="jarvis-acoustic-mode">
-                  <option value="hud" selected>Stark Mark VII Helmet HUD (+3.2kHz Peak)</option>
-                  <option value="hologram">Malibu Lab Hologram (Spatial Air)</option>
-                  <option value="clean">Clean Cinema Vocal (Pure Studio)</option>
-                </select>
-              </div>
-            </div>
-
-            <div class="jarvis-select-row">
-              <div class="jarvis-control-item">
-                <label for="jarvis-rate-select">Speaking Cadence / Speed</label>
-                <select id="jarvis-rate-select">
-                  <option value="-5%">0.95x (Deliberate & Formal)</option>
-                  <option value="+0%">1.00x (Natural British Pace)</option>
-                  <option value="+2%" selected>1.02x (Iconic Movie Cadence)</option>
-                  <option value="+8%">1.10x (Tactical Fast Response)</option>
-                </select>
-              </div>
-
-              <div class="jarvis-control-item">
-                <label for="jarvis-pitch-select">Vocal Pitch</label>
-                <select id="jarvis-pitch-select">
-                  <option value="-2Hz">Deeper Resonance (-2Hz)</option>
-                  <option value="+0Hz" selected>Authentic Pitch (+0Hz)</option>
-                  <option value="+2Hz">Crisp Presence (+2Hz)</option>
+              <div>
+                <label style="font-size:11px;font-weight:600;color:#64748b;display:block;margin-bottom:4px">Speaking Cadence</label>
+                <select id="jarvis-rate-select" style="width:100%;padding:6px 10px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;font-size:12px">
+                  <option value="+0%">1.00x Natural Speed</option>
+                  <option value="+2%" selected>1.02x Polished Cadence</option>
+                  <option value="+8%">1.10x Quick Briefing</option>
                 </select>
               </div>
             </div>
-
-            <button type="button" id="btn-audition-jarvis" class="btn-audition-jarvis">
-              <span>🔊</span> <span>Audition JARVIS Voice Module</span>
-            </button>
           </div>
-        </div>
 
-        <div>
-          <h4 style="font-size:13px;font-weight:700;color:#0f172a;margin-bottom:8px">Data & Privacy</h4>
-          <div style="display:flex;flex-direction:column;gap:8px">
-            <button id="btn-clear-chat-history" style="background:#fef2f2;border:1px solid #fecaca;color:#dc2626;padding:10px 14px;border-radius:8px;font-size:12px;font-weight:600;text-align:left;display:flex;align-items:center;justify-content:space-between;cursor:pointer">
-              <span>🗑️ Clear Active Chat Session Messages</span>
-              <span style="font-size:11px">Delete Now</span>
-            </button>
-            <button id="btn-export-chat" style="background:#f8fafc;border:1px solid #e2e8f0;color:#334155;padding:10px 14px;border-radius:8px;font-size:12px;font-weight:600;text-align:left;display:flex;align-items:center;justify-content:space-between;cursor:pointer">
-              <span>📥 Export Chat Transcript (JSON)</span>
-              <span style="font-size:11px">Export</span>
-            </button>
+          <div style="border-top:1px solid #e2e8f0;padding-top:14px">
+            <h5 style="margin:0 0 8px;font-size:13px;color:#0f172a;font-weight:700">Data Management</h5>
+            <div style="display:flex;gap:8px">
+              <button type="button" id="btn-clear-chat-history" class="btn-portal-action" style="color:#dc2626;border-color:#fecaca;background:#fff5f5">Clear Session Messages</button>
+              <button type="button" id="btn-export-chat" class="btn-portal-action">Export Encrypted Transcript</button>
+            </div>
           </div>
-        </div>
-
-        <div style="border-top:1px solid #e2e8f0;padding-top:14px;display:flex;justify-content:space-between;align-items:center">
-          <span style="font-size:11px;color:#94a3b8">Session: <code id="account-session-id" style="color:#2563eb">Active</code></span>
-          <button id="btn-account-logout" class="btn-logout" style="color:#ef4444;font-weight:700;font-size:12px">Sign Out</button>
         </div>
       </div>
     </div>
@@ -4922,7 +5283,7 @@
           <label style="font-size:12px;font-weight:700;color:#0f172a;display:block;margin-bottom:6px">Prompt Inspirations (Click to load)</label>
           <div style="display:flex;flex-wrap:wrap;gap:6px">
             <button type="button" class="studio-chip-btn" data-text="A majestic cybernetic robotic lion with glowing neon blue lighting in neo Tokyo">🦁 Cybernetic Lion</button>
-            <button type="button" class="studio-chip-btn" data-text="Nagu the snake humanoid warrior with emerald iridescent scales and golden armor">🐉 Nagu Snake Warrior</button>
+            <button type="button" class="studio-chip-btn" data-text="Futuristic smart wearable concept watch with holographic curved glass on marble podium">⌚ Smart Wearable Concept</button>
             <button type="button" class="studio-chip-btn" data-text="Futuristic hypercar flying through neon-lit rainy Tokyo skyscrapers at dusk">🏎️ Flying Hypercar</button>
             <button type="button" class="studio-chip-btn" data-text="Cosmic astronaut floating gracefully through a bioluminescent galaxy nebula in 8k">🌌 Cosmic Astronaut</button>
           </div>
@@ -4946,7 +5307,7 @@
         <div style="display:flex;align-items:center;gap:10px">
           <div class="brand-icon" style="width:32px;height:32px;font-size:16px;background:linear-gradient(135deg,#2563eb,#7c3aed)">🚀</div>
           <div>
-            <h3 style="margin:0;font-size:16px;color:#fff">SupportAI & JARVIS — Quick Start Guide</h3>
+            <h3 style="margin:0;font-size:16px;color:#fff">OmniCare Operations — Quick Start Guide</h3>
             <span style="font-size:11px;color:#94a3b8">Learn all 6 multimodal real-time capabilities in 6 simple steps</span>
           </div>
         </div>
@@ -4984,21 +5345,21 @@
           </div>
           <h3 style="margin:0;font-size:17px;color:#0f172a">🎙️ Full Hands-Free Voice Conversation</h3>
           <p class="guide-desc-text">
-            Speak naturally to JARVIS using browser speech recognition. Silence detection automatically submits your voice query after you stop speaking, and JARVIS answers back instantly in a natural British AI voice.
+            Speak naturally to your concierge using browser speech recognition. Silence detection automatically submits your voice query after you stop speaking, and The concierge responds instantly in a natural British AI voice.
           </p>
           <div class="guide-feature-box">
             <h4>⚡ Real-time Voice Architecture</h4>
             <ul>
               <li><strong>Continuous Listening:</strong> Tap 🎙️ on the composer bar and begin speaking immediately.</li>
               <li><strong>Smart Silence Detection:</strong> Automatically senses a 1.3-second pause in speech and transmits the message hands-free.</li>
-              <li><strong>JARVIS Audio Synthesis:</strong> Assistant responses are spoken aloud via Web Speech API with rate and pitch tuned for clarity.</li>
+              <li><strong>Natural Voice Audio Synthesis:</strong> Assistant responses are spoken aloud via Web Speech API with rate and pitch tuned for clarity.</li>
             </ul>
           </div>
           <div class="guide-try-action-box">
             <label>👉 Click to Test in Real-Time</label>
             <button type="button" class="guide-try-btn" data-prompt="Hello Jarvis! Give me a full audio briefing of your multimodal tools and capabilities today.">
               <span>Test Voice Conversation</span>
-              <span class="prompt-text">"Hello Jarvis! Give me an audio briefing..."</span>
+              <span class="prompt-text">"Check my active orders across stores..."</span>
               <span>→</span>
             </button>
           </div>
@@ -5174,7 +5535,7 @@
         <div style="display:flex;align-items:center;gap:10px">
           <div class="brand-icon" style="width:34px;height:34px;font-size:18px;background:linear-gradient(135deg,#059669,#10b981)">🤖</div>
           <div>
-            <h3 style="margin:0;font-size:16px;color:#fff">Install SupportAI & JARVIS (Android App)</h3>
+            <h3 style="margin:0;font-size:16px;color:#fff">Install OmniCare Operations (Android App)</h3>
             <span style="font-size:11px;color:#34d399">Full Multimodal Suite · 100% Mobile Ready</span>
           </div>
         </div>
@@ -5185,7 +5546,7 @@
         <div style="display:flex;flex-wrap:wrap;gap:6px">
           <span style="background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(16,185,129,0.3);padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700">✓ Android 8 to 15+</span>
           <span style="background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.3);padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700">🎙️ Hands-Free Mic</span>
-          <span style="background:rgba(139,92,246,0.15);color:#a78bfa;border:1px solid rgba(139,92,246,0.3);padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700">🔊 JARVIS Voice</span>
+          <span style="background:rgba(139,92,246,0.15);color:#a78bfa;border:1px solid rgba(139,92,246,0.3);padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700">🔊 Voice Output</span>
           <span style="background:rgba(245,158,11,0.15);color:#fbbf24;border:1px solid rgba(245,158,11,0.3);padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700">📦 Universal Orders</span>
         </div>
 
@@ -5232,7 +5593,7 @@
             <li>Open the link above in Chrome, Edge, or Samsung Internet on Android.</li>
             <li>Tap the browser menu <strong>(⋮ three dots)</strong> at the top right.</li>
             <li>Tap <strong>"Install app"</strong> or <strong>"Add to Home screen"</strong>.</li>
-            <li>The full-screen SupportAI app with JARVIS voice will be added to your apps!</li>
+            <li>The full-screen SupportAI app operations app will be added to your apps!</li>
           </ol>
         </div>
       </div>
@@ -5630,7 +5991,7 @@
           this.updateUi(false);
         },
 
-        updateUi(speaking, msg = 'JARVIS Speaking') {
+        updateUi(speaking, msg = 'Voice Active') {
           const badge = $('jarvis-speaking-badge');
           if (badge) {
             badge.style.display = speaking ? 'inline-flex' : 'none';
@@ -5752,7 +6113,7 @@
 
           utterance.onstart = () => {
             this.isPlaying = true;
-            this.updateUi(true, 'JARVIS Speaking');
+            this.updateUi(true, 'Voice Active');
           };
           utterance.onend = () => {
             this.isPlaying = false;
@@ -5821,7 +6182,7 @@
           if (transcript) {
             $('message-input').value = transcript;
             $('message-input').style.height = 'auto';
-            $('message-input').style.height = Math.min($('message-input').scrollHeight, 100) + 'px';
+            $('message-input').style.height = Math.min(Math.max($('message-input').scrollHeight, 48), 180) + 'px';
             resetSilenceTimer();
           }
         };
@@ -6079,7 +6440,7 @@
           const replayBtn = document.createElement('button');
           replayBtn.type = 'button';
           replayBtn.className = 'btn-replay-voice';
-          replayBtn.title = 'Replay with authentic Iron Man JARVIS Voice';
+          replayBtn.title = 'Replay with authentic High-Fidelity Audio';
           replayBtn.innerHTML = '<span>🔊</span> <span>JARVIS Voice</span>';
           replayBtn.onclick = (e) => {
             e.stopPropagation();
@@ -6104,7 +6465,7 @@
         stream.replaceChildren();
 
         if (!state.messages.length) {
-          appendMessage('assistant', "Hello! I am JARVIS & SupportAI, your multimodal AI assistant. How can I help you today?");
+          appendMessage('assistant', "Welcome to OmniCare Customer Operations, your multimodal AI assistant. How can I help you today?");
           return;
         }
 
@@ -6265,7 +6626,7 @@
 
       msgInput.addEventListener('input', (e) => {
         e.target.style.height = 'auto';
-        e.target.style.height = Math.min(e.target.scrollHeight, 100) + 'px';
+        e.target.style.height = Math.min(Math.max(e.target.scrollHeight, 48), 180) + 'px';
       });
 
       // =========================================================
@@ -6534,6 +6895,97 @@
         if (pitchSel) pitchSel.value = state.jarvisPitch || '+0Hz';
         $('account-modal').style.display = 'grid';
       }
+      
+      // Enterprise Customer Portal Tab Switching
+      document.querySelectorAll('.portal-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tabId = btn.dataset.tab;
+          document.querySelectorAll('.portal-tab-btn').forEach(b => b.classList.remove('active'));
+          document.querySelectorAll('.portal-tab-content').forEach(c => c.classList.remove('active'));
+          btn.classList.add('active');
+          const target = $('tab-' + tabId);
+          if (target) target.classList.add('active');
+        });
+      });
+
+      // 1-Click Demo Login as Verified Customer
+      const quickDemoBtn = $('btn-quick-demo-auth');
+      if (quickDemoBtn) {
+        quickDemoBtn.addEventListener('click', async () => {
+          $('auth-email').value = 'alex.carter@enterprise.com';
+          $('auth-password').value = 'DemoEnterprise2026!';
+          $('btn-auth-submit').click();
+        });
+      }
+
+      
+      // =========================================================
+      // OMNICARE ENTERPRISE CUSTOMER OPERATIONS JAVASCRIPT EXTENSIONS
+      // =========================================================
+      window.openCustomerPortal = function(tabName = 'orders') {
+        openAccount();
+        if (tabName === 'stores') tabName = 'merchants';
+        if (tabName === 'claims') tabName = 'returns';
+        const targetBtn = document.querySelector(`.portal-tab-btn[data-tab="${tabName}"]`);
+        if (targetBtn) {
+          targetBtn.click();
+        }
+      };
+
+      window.sendSuggestedPrompt = function(promptText) {
+        closeAccount();
+        switchView('chat');
+        const input = $('message-input');
+        if (input) {
+          input.value = promptText;
+          const form = $('composer-form');
+          if (form) {
+            if (typeof form.requestSubmit === 'function') {
+              form.requestSubmit();
+            } else {
+              form.dispatchEvent(new Event('submit', { cancelable: true }));
+            }
+          }
+        }
+      };
+
+      window.openQuickOrderModal = function() {
+        const m = $('modal-quick-order');
+        if (m) m.style.display = 'grid';
+      };
+
+      window.closeQuickOrderModal = function() {
+        const m = $('modal-quick-order');
+        if (m) m.style.display = 'none';
+      };
+
+      window.handleQuickOrderSubmit = function(e) {
+        e.preventDefault();
+        const store = $('quick-order-store').value;
+        const item = $('quick-order-item').value.trim();
+        const address = $('quick-order-address').value.trim();
+        closeQuickOrderModal();
+        window.sendSuggestedPrompt(`Order ${item} from ${store} to ${address}`);
+      };
+
+      window.openQuickReturnModal = function() {
+        const m = $('modal-quick-return');
+        if (m) m.style.display = 'grid';
+      };
+
+      window.closeQuickReturnModal = function() {
+        const m = $('modal-quick-return');
+        if (m) m.style.display = 'none';
+      };
+
+      window.handleQuickReturnSubmit = function(e) {
+        e.preventDefault();
+        const orderId = $('quick-return-order').value;
+        const reason = $('quick-return-reason').value;
+        closeQuickReturnModal();
+        window.sendSuggestedPrompt(`I want to return order ${orderId} because ${reason}`);
+      };
+
       function closeAccount() {
         $('account-modal').style.display = 'none';
       }
@@ -7093,7 +7545,7 @@
       document.querySelectorAll('.btn-plan-select').forEach(btn => {
         btn.onclick = () => {
           switchView('chat');
-          sendSuggested(`I would like to choose the ${btn.dataset.plan} plan for SupportAI & JARVIS!`);
+          sendSuggested(`I would like to choose the ${btn.dataset.plan} plan for OmniCare Operations!`);
         };
       });
 
@@ -7312,7 +7764,7 @@
             console.log('WebAPK Install outcome:', outcome);
             deferredInstallPrompt = null;
           } else {
-            alert('📲 To install directly on Android:\n\n1. Tap the browser menu (⋮ 3 dots) in the top-right corner.\n2. Tap "Install App" or "Add to Home screen".\n3. SupportAI & JARVIS will install directly as a native Android WebAPK!');
+            alert('📲 To install directly on Android:\n\n1. Tap the browser menu (⋮ 3 dots) in the top-right corner.\n2. Tap "Install App" or "Add to Home screen".\n3. OmniCare Operations will install directly as a native Android WebAPK!');
           }
         };
       }
@@ -7344,5 +7796,113 @@
       }
     })();
   </script>
+
+  <!-- =========================================================
+       MODAL: AUTONOMOUS ORDER PLACEMENT (MULTI-MERCHANT)
+       ========================================================= -->
+  <div id="modal-quick-order" class="app-modal-overlay" style="display:none;z-index:9999">
+    <div class="app-modal-box" style="max-width:520px;border-radius:16px;background:#ffffff;box-shadow:0 25px 60px rgba(0,0,0,0.3);border:1px solid #e2e8f0;overflow:hidden">
+      <div style="background:#0f172a;color:#ffffff;padding:18px 22px;display:flex;align-items:center;justify-content:space-between">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:32px;height:32px;border-radius:8px;background:#2563eb;display:grid;place-items:center;color:#fff;font-size:16px">🛒</div>
+          <div>
+            <h3 style="margin:0;font-size:16px;font-weight:700;color:#ffffff">Place Autonomous Order</h3>
+            <span style="font-size:11.5px;color:#94a3b8">Multi-Platform Instant Checkout with Real Courier Assignment</span>
+          </div>
+        </div>
+        <button type="button" onclick="closeQuickOrderModal()" style="background:none;border:none;color:#94a3b8;font-size:18px;cursor:pointer">✕</button>
+      </div>
+
+      <div style="padding:22px">
+        <form id="form-quick-order" onsubmit="handleQuickOrderSubmit(event)">
+          <div style="margin-bottom:14px">
+            <label style="display:block;font-size:12px;font-weight:700;color:#334155;margin-bottom:5px">Select Merchant Channel</label>
+            <select id="quick-order-store" style="width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid #cbd5e1;background:#fff;font-size:13px;color:#0f172a;font-weight:600">
+              <option value="Domino's">🍕 Domino's Pizza (Express 30m Hot Delivery)</option>
+              <option value="Amazon">📦 Amazon (Prime Priority Next-Day Retail)</option>
+              <option value="Swiggy">🛵 Swiggy Fleet (Instant Food & Groceries)</option>
+              <option value="Flipkart">🏷️ Flipkart Logistics (Electronics & Lifestyle)</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <label style="display:block;font-size:12px;font-weight:700;color:#334155;margin-bottom:5px">Items to Order</label>
+            <input type="text" id="quick-order-item" value="Large Farmhouse Pizza and Stuffed Garlic Bread" placeholder="e.g. 1x Large Margherita Pizza + Garlic Bread" required style="width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid #cbd5e1;font-size:13px;color:#0f172a">
+          </div>
+
+          <div style="margin-bottom:18px">
+            <label style="display:block;font-size:12px;font-weight:700;color:#334155;margin-bottom:5px">Delivery Address</label>
+            <input type="text" id="quick-order-address" value="42 MG Road, Bangalore" placeholder="Enter full delivery destination" required style="width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid #cbd5e1;font-size:13px;color:#0f172a">
+          </div>
+
+          <div style="background:#f8fafc;border:1px solid #e2e8f0;padding:12px 14px;border-radius:10px;margin-bottom:18px;font-size:12px;color:#475569">
+            <div style="font-weight:700;color:#0f172a;margin-bottom:3px">🔒 Autonomous Transaction Security</div>
+            <div>Order will be transmitted securely to merchant API with live courier vehicle license, rider identification, and itemized GST invoice.</div>
+          </div>
+
+          <div style="display:flex;justify-content:flex-end;gap:10px">
+            <button type="button" onclick="closeQuickOrderModal()" style="padding:10px 16px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;color:#475569;font-weight:600;font-size:13px;cursor:pointer">Cancel</button>
+            <button type="submit" style="padding:10px 20px;border-radius:8px;border:none;background:#2563eb;color:#fff;font-weight:700;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px">
+              <span>⚡ Confirm & Transmit Order</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MODAL: FILE RETURN CLAIM & INSTANT REFUND
+       ========================================================= -->
+  <div id="modal-quick-return" class="app-modal-overlay" style="display:none;z-index:9999">
+    <div class="app-modal-box" style="max-width:520px;border-radius:16px;background:#ffffff;box-shadow:0 25px 60px rgba(0,0,0,0.3);border:1px solid #e2e8f0;overflow:hidden">
+      <div style="background:#0f172a;color:#ffffff;padding:18px 22px;display:flex;align-items:center;justify-content:space-between">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:32px;height:32px;border-radius:8px;background:#dc2626;display:grid;place-items:center;color:#fff;font-size:16px">↩️</div>
+          <div>
+            <h3 style="margin:0;font-size:16px;font-weight:700;color:#ffffff">Initiate Policy Return & Refund</h3>
+            <span style="font-size:11.5px;color:#94a3b8">Instant Claim Evaluation with Automated Policy Guarantee</span>
+          </div>
+        </div>
+        <button type="button" onclick="closeQuickReturnModal()" style="background:none;border:none;color:#94a3b8;font-size:18px;cursor:pointer">✕</button>
+      </div>
+
+      <div style="padding:22px">
+        <form id="form-quick-return" onsubmit="handleQuickReturnSubmit(event)">
+          <div style="margin-bottom:14px">
+            <label style="display:block;font-size:12px;font-weight:700;color:#334155;margin-bottom:5px">Select Order to Return</label>
+            <select id="quick-return-order" style="width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid #cbd5e1;background:#fff;font-size:13px;color:#0f172a;font-weight:600">
+              <option value="#ORD-7821094">Amazon #ORD-7821094 — Sony WH-1000XM5 Headphones (₹24,900.00)</option>
+              <option value="#DOM-9102834">Domino's #DOM-9102834 — Farmhouse Pan Pizza & Garlic Bread (₹458.95)</option>
+              <option value="#FLIP-3291048">Flipkart #FLIP-3291048 — Logitech MX Master 3S Mouse (₹7,995.00)</option>
+            </select>
+          </div>
+
+          <div style="margin-bottom:14px">
+            <label style="display:block;font-size:12px;font-weight:700;color:#334155;margin-bottom:5px">Reason for Claim</label>
+            <select id="quick-return-reason" style="width:100%;padding:10px 12px;border-radius:8px;border:1.5px solid #cbd5e1;background:#fff;font-size:13px;color:#0f172a">
+              <option value="Item defective or not functioning as described">Defective / Malfunctioning hardware</option>
+              <option value="Package arrived damaged or crushed during transit">Damaged or crushed transit box</option>
+              <option value="Wrong item delivered by merchant courier">Incorrect item delivered</option>
+              <option value="Quality did not meet specifications">Food quality issue or incorrect temperature</option>
+            </select>
+          </div>
+
+          <div style="background:#ecfdf5;border:1px solid #a7f3d0;padding:12px 14px;border-radius:10px;margin-bottom:18px;font-size:12px;color:#065f46">
+            <div style="font-weight:700;margin-bottom:3px">🛡️ Automated ₹5,000 Policy Guarantee</div>
+            <div>Claims under ₹5,000 threshold are processed with 100% immediate auto-approval and instant reversal to original payment method. High-value orders are audited with a 2-hour SLA.</div>
+          </div>
+
+          <div style="display:flex;justify-content:flex-end;gap:10px">
+            <button type="button" onclick="closeQuickReturnModal()" style="padding:10px 16px;border-radius:8px;border:1px solid #cbd5e1;background:#fff;color:#475569;font-weight:600;font-size:13px;cursor:pointer">Cancel</button>
+            <button type="submit" style="padding:10px 20px;border-radius:8px;border:none;background:#dc2626;color:#fff;font-weight:700;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px">
+              <span>↩️ Submit Claim for Evaluation</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
