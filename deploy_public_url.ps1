@@ -63,8 +63,20 @@ if (-not $Wait) {
     Write-Host "[1/3] PostgreSQL database active on port $PgPort." -ForegroundColor Green
 }
 
-# 2. Check or launch Backend server on port 8000
-$ApiWait = Test-TcpPort -Address "127.0.0.1" -PortNumber ([int]$Port)
+# 2. Check or launch Backend server
+$TargetPort = [int]$Port
+$ApiWait = Test-TcpPort -Address "127.0.0.1" -PortNumber $TargetPort
+if ($ApiWait) {
+    try {
+        $Probe = Invoke-WebRequest "http://127.0.0.1:$TargetPort/health" -UseBasicParsing -TimeoutSec 2
+        if ($Probe.Content -match "genesis-shadow") {
+            Write-Host "Port $TargetPort is hosting Genesis Shadow. Using port 8001 for SupportAI..." -ForegroundColor Yellow
+            $Port = "8001"
+            $TargetPort = 8001
+            $ApiWait = Test-TcpPort -Address "127.0.0.1" -PortNumber $TargetPort
+        }
+    } catch {}
+}
 
 if (-not $ApiWait) {
     Write-Host "[2/3] Starting SupportAI Backend server on port $Port..." -ForegroundColor Yellow

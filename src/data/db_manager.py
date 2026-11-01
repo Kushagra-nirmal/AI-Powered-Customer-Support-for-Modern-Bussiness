@@ -59,7 +59,7 @@ class DatabaseService:
                 poolclass=QueuePool,
                 pool_size=pool_size,
                 max_overflow=max_overflow,
-                pool_timeout=30,  # Connection timeout (seconds)
+                pool_timeout=60,  # Connection timeout (seconds) for high concurrency
                 pool_recycle=1800,  # Recycle connections after 30 minutes
             )
 

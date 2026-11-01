@@ -33,7 +33,7 @@ from src.data.schemas.auth import (
     UserCreate,
     UserResponse,
 )
-from src.data.db_manager import DatabaseService
+from src.data.db_manager import db_manager as db_service
 from src.utils.auth import (
     create_access_token,
     verify_token,
@@ -46,7 +46,6 @@ from src.utils.sanitization import (
 
 router = APIRouter()
 security = HTTPBearer()
-db_service = DatabaseService()
 
 
 async def get_current_user(

@@ -4,10 +4,10 @@ import datetime
 from typing import List, Optional
 from fastapi import APIRouter, HTTPException, Query, Request
 from pydantic import BaseModel
-from sqlmodel import Session, create_engine, select
-from sqlalchemy.engine import URL
+from sqlmodel import Session, select
 
 from src.config.settings import settings
+from src.data.db_manager import db_manager
 from src.data.models.ticket import Ticket
 from src.data.models.knowledge import KnowledgeDocument
 from src.system.logs import logger
@@ -16,15 +16,8 @@ router = APIRouter()
 
 
 def _get_engine():
-    connection_url = URL.create(
-        "postgresql",
-        username=settings.POSTGRES_USER,
-        password=settings.POSTGRES_PASSWORD,
-        host=settings.POSTGRES_HOST,
-        port=settings.POSTGRES_PORT,
-        database=settings.POSTGRES_DB,
-    )
-    return create_engine(connection_url, pool_pre_ping=True)
+    """Return shared pooled database engine."""
+    return db_manager.engine
 
 
 class TicketCreateRequest(BaseModel):
@@ -69,7 +62,8 @@ async def list_tickets(
 async def create_ticket(req: TicketCreateRequest):
     """Create a new support ticket."""
     import random
-    ticket_id = f"#TICK-{random.randint(1000, 9999)}"
+    ts_part = int(datetime.datetime.now(datetime.timezone.utc).timestamp() * 1000) % 10000000
+    ticket_id = f"#TICK-{ts_part}-{random.randint(100, 999)}"
     now = datetime.datetime.now(datetime.timezone.utc)
 
     try:

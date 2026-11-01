@@ -194,22 +194,23 @@ class Settings:
             self.POSTGRES_DB = os.getenv("POSTGRES_DB") or os.getenv("PGDATABASE", "food_order_db")
             self.POSTGRES_USER = os.getenv("POSTGRES_USER") or os.getenv("PGUSER", "postgres")
             self.POSTGRES_PASSWORD = os.getenv("POSTGRES_PASSWORD") or os.getenv("PGPASSWORD", "postgres")
-        self.POSTGRES_POOL_SIZE = int(os.getenv("POSTGRES_POOL_SIZE", "20"))
-        self.POSTGRES_MAX_OVERFLOW = int(os.getenv("POSTGRES_MAX_OVERFLOW", "10"))
+        self.POSTGRES_POOL_SIZE = int(os.getenv("POSTGRES_POOL_SIZE", "30"))
+        self.POSTGRES_MAX_OVERFLOW = int(os.getenv("POSTGRES_MAX_OVERFLOW", "30"))
         self.CHECKPOINT_TABLES = ["checkpoint_blobs", "checkpoint_writes", "checkpoints"]
 
         # Rate Limiting Configuration
-        self.RATE_LIMIT_DEFAULT = parse_list_from_env("RATE_LIMIT_DEFAULT", ["200 per day", "50 per hour"])
+        self.RATE_LIMIT_ENABLED = os.getenv("RATE_LIMIT_ENABLED", "true").lower() in ("true", "1", "yes")
+        self.RATE_LIMIT_DEFAULT = parse_list_from_env("RATE_LIMIT_DEFAULT", ["50000 per day", "10000 per hour", "5000 per minute"])
 
-        # Rate limit endpoints defaults
+        # Rate limit endpoints defaults (scaled for 500+ concurrent users)
         default_endpoints = {
-            "chat": ["30 per minute"],
-            "chat_stream": ["20 per minute"],
-            "messages": ["50 per minute"],
-            "register": ["1000 per hour"],
-            "login": ["100 per minute"],
-            "root": ["50 per minute"],
-            "health": ["100 per minute"],
+            "chat": ["1000 per minute"],
+            "chat_stream": ["1000 per minute"],
+            "messages": ["2000 per minute"],
+            "register": ["2000 per hour", "500 per minute"],
+            "login": ["2000 per minute"],
+            "root": ["5000 per minute"],
+            "health": ["5000 per minute"],
         }
 
         # Update rate limit endpoints from environment variables
@@ -236,23 +237,23 @@ class Settings:
                 "DEBUG": True,
                 "LOG_LEVEL": "DEBUG",
                 "LOG_FORMAT": "console",
-                "RATE_LIMIT_DEFAULT": ["1000 per day", "200 per hour"],
+                "RATE_LIMIT_DEFAULT": ["50000 per day", "10000 per hour", "5000 per minute"],
             },
             Environment.STAGING: {
                 "DEBUG": False,
                 "LOG_LEVEL": "INFO",
-                "RATE_LIMIT_DEFAULT": ["500 per day", "100 per hour"],
+                "RATE_LIMIT_DEFAULT": ["50000 per day", "10000 per hour", "5000 per minute"],
             },
             Environment.PRODUCTION: {
                 "DEBUG": False,
                 "LOG_LEVEL": "WARNING",
-                "RATE_LIMIT_DEFAULT": ["200 per day", "50 per hour"],
+                "RATE_LIMIT_DEFAULT": ["50000 per day", "10000 per hour", "5000 per minute"],
             },
             Environment.TEST: {
                 "DEBUG": True,
                 "LOG_LEVEL": "DEBUG",
                 "LOG_FORMAT": "console",
-                "RATE_LIMIT_DEFAULT": ["1000 per day", "1000 per hour"],  # Relaxed for testing
+                "RATE_LIMIT_DEFAULT": ["50000 per day", "10000 per hour", "5000 per minute"],  # Relaxed for testing
             },
         }
 

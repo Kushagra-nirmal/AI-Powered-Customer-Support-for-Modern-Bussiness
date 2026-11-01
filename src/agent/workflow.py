@@ -111,8 +111,8 @@ class LangGraphAgent:
         """
         if self._connection_pool is None:
             try:
-                # Configure pool size based on environment
-                max_size = settings.POSTGRES_POOL_SIZE
+                # Configure pool size safely under PostgreSQL server max_connections
+                max_size = min(settings.POSTGRES_POOL_SIZE, 20)
 
                 connection_url = (
                     "postgresql://"

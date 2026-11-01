@@ -29,20 +29,11 @@ def _normalize_order_id(order_id: str) -> str:
 def _save_order_to_db(record_dict: Dict[str, Any]) -> None:
     """Save order record to PostgreSQL order_records table."""
     try:
-        from sqlmodel import Session, create_engine
-        from sqlalchemy.engine import URL
-        from src.config.settings import settings
+        from sqlmodel import Session
+        from src.data.db_manager import db_manager
         from src.data.models.order import OrderRecord
 
-        connection_url = URL.create(
-            "postgresql",
-            username=settings.POSTGRES_USER,
-            password=settings.POSTGRES_PASSWORD,
-            host=settings.POSTGRES_HOST,
-            port=settings.POSTGRES_PORT,
-            database=settings.POSTGRES_DB,
-        )
-        engine = create_engine(connection_url, pool_pre_ping=True)
+        engine = db_manager.engine
         with Session(engine) as session:
             existing = session.get(OrderRecord, record_dict["order_id"])
             if not existing:
@@ -72,20 +63,11 @@ def _save_order_to_db(record_dict: Dict[str, Any]) -> None:
 def _load_order_from_db(order_id: str) -> Optional[Dict[str, Any]]:
     """Retrieve order record from PostgreSQL order_records table."""
     try:
-        from sqlmodel import Session, create_engine
-        from sqlalchemy.engine import URL
-        from src.config.settings import settings
+        from sqlmodel import Session
+        from src.data.db_manager import db_manager
         from src.data.models.order import OrderRecord
 
-        connection_url = URL.create(
-            "postgresql",
-            username=settings.POSTGRES_USER,
-            password=settings.POSTGRES_PASSWORD,
-            host=settings.POSTGRES_HOST,
-            port=settings.POSTGRES_PORT,
-            database=settings.POSTGRES_DB,
-        )
-        engine = create_engine(connection_url, pool_pre_ping=True)
+        engine = db_manager.engine
         with Session(engine) as session:
             norm_id = _normalize_order_id(order_id)
             obj = session.get(OrderRecord, norm_id) or session.get(OrderRecord, norm_id.replace("#", ""))
@@ -262,10 +244,11 @@ def place_order(
         delivery_address: Destination shipping or delivery address.
     """
     qty = max(1, quantity)
-    rand_id = random.randint(10000, 99999)
+    now_utc = datetime.datetime.now(datetime.timezone.utc)
+    ts_digits = int(now_utc.timestamp() * 1000) % 10000000
+    rand_id = f"{ts_digits:07d}{random.randint(10, 99)}"
     order_id = f"#ORD-{rand_id}"
     plat_title = platform.strip().title()
-    now_utc = datetime.datetime.now(datetime.timezone.utc)
 
     # Compute itemized financials
     subtotal, tax, delivery_fee, total, currency = _estimate_pricing(item_name, qty)

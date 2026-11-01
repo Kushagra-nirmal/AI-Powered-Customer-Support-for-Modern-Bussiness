@@ -8,7 +8,7 @@ This repository includes a tier-1 customer-facing landing page, chat interface, 
 To launch the entire platform and access it from **any smartphone, tablet, laptop, or PC worldwide**:
 - Simply double-click **`launch_public_app.bat`** (or run `powershell -ExecutionPolicy Bypass -File deploy_public_url.ps1`).
 - This automatically starts the PostgreSQL database, launches the backend, and spins up a secure global Cloudflare HTTPS tunnel.
-- **Active Public URL**: [https://seed-enrolled-ballet-thumbzilla.trycloudflare.com](https://seed-enrolled-ballet-thumbzilla.trycloudflare.com)
+- **Active Public URL**: [https://driven-divisions-remember-departments.trycloudflare.com](https://driven-divisions-remember-departments.trycloudflare.com)
 - **Local Access**: [http://127.0.0.1:8000](http://127.0.0.1:8000) (API Docs: [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs))
 - **Live Health Check**: [http://127.0.0.1:8000/health](http://127.0.0.1:8000/health) | **Tickets API**: [http://127.0.0.1:8000/api/v1/tickets](http://127.0.0.1:8000/api/v1/tickets)
 

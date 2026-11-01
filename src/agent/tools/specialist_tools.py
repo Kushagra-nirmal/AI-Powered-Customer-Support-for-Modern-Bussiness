@@ -12,25 +12,18 @@ import random
 import re
 from typing import Any, Dict, List, Optional
 from langchain_core.tools import tool
-from sqlmodel import Session, create_engine, select
-from sqlalchemy.engine import URL
+from sqlmodel import Session, select
 
 from src.config.settings import settings
+from src.data.db_manager import db_manager
 from src.data.models.ticket import Ticket
 from src.data.models.knowledge import KnowledgeDocument
 from src.data.models.order import OrderRecord
 
 
 def _get_engine():
-    connection_url = URL.create(
-        "postgresql",
-        username=settings.POSTGRES_USER,
-        password=settings.POSTGRES_PASSWORD,
-        host=settings.POSTGRES_HOST,
-        port=settings.POSTGRES_PORT,
-        database=settings.POSTGRES_DB,
-    )
-    return create_engine(connection_url, pool_pre_ping=True)
+    """Return shared pooled database engine."""
+    return db_manager.engine
 
 
 @tool
@@ -99,8 +92,8 @@ def create_support_ticket(
         priority: Priority rating ('Low', 'Medium', 'High', 'Critical').
         customer_email: Customer's contact email.
     """
-    rand_num = random.randint(1000, 9999)
-    ticket_id = f"#TICK-{rand_num}"
+    ts_part = int(datetime.datetime.now(datetime.timezone.utc).timestamp() * 1000) % 10000000
+    ticket_id = f"#TICK-{ts_part}-{random.randint(100, 999)}"
     now_utc = datetime.datetime.now(datetime.timezone.utc)
 
     # Determine assigned specialist agent

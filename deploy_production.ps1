@@ -59,20 +59,37 @@ if (-not $PgRunning) {
 }
 Write-Host "PostgreSQL is reachable on port $PgPort." -ForegroundColor Green
 
-# Check if API server is already running on target port
+# Check if API server is already running on target port or conflicting with another service
+$TargetPort = [int]$Port
 $ApiTcp = New-Object System.Net.Sockets.TcpClient
-$ApiConnect = $ApiTcp.BeginConnect("127.0.0.1", [int]$Port, $null, $null)
+$ApiConnect = $ApiTcp.BeginConnect("127.0.0.1", $TargetPort, $null, $null)
 $ApiWait = $ApiConnect.AsyncWaitHandle.WaitOne(1000, $false)
 
 if ($ApiWait) {
     $ApiTcp.EndConnect($ApiConnect)
     $ApiTcp.Close()
-    Write-Host "`n==========================================================" -ForegroundColor Green
-    Write-Host " Server is ALREADY RUNNING and healthy on port $Port!" -ForegroundColor Green
-    Write-Host " Open the customer support app: http://127.0.0.1:$Port/" -ForegroundColor Cyan
-    Write-Host " API documentation:          http://127.0.0.1:$Port/docs" -ForegroundColor DarkCyan
-    Write-Host "==========================================================" -ForegroundColor Green
-    exit 0
+    
+    # Verify whether the service running is actually SupportAI
+    $IsSupportAI = $false
+    try {
+        $Probe = Invoke-WebRequest "http://127.0.0.1:$TargetPort/health" -UseBasicParsing -TimeoutSec 2
+        if ($Probe.Content -match '"components"' -and $Probe.Content -notmatch 'genesis-shadow') {
+            $IsSupportAI = $true
+        }
+    } catch {}
+
+    if ($IsSupportAI) {
+        Write-Host "`n==========================================================" -ForegroundColor Green
+        Write-Host " Server is ALREADY RUNNING and healthy on port $TargetPort!" -ForegroundColor Green
+        Write-Host " Open the customer support app: http://127.0.0.1:$TargetPort/" -ForegroundColor Cyan
+        Write-Host " API documentation:          http://127.0.0.1:$TargetPort/docs" -ForegroundColor DarkCyan
+        Write-Host "==========================================================" -ForegroundColor Green
+        exit 0
+    } else {
+        Write-Host "Port $Port is in use by another application. Using port 8001 for SupportAI..." -ForegroundColor Yellow
+        $Port = "8001"
+        $env:PORT = "8001"
+    }
 }
 
 Write-Host "Launching SupportAI on http://127.0.0.1:$Port/" -ForegroundColor Green
