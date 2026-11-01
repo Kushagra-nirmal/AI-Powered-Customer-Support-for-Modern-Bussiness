@@ -6002,7 +6002,7 @@
           document.querySelectorAll('.btn-replay-voice').forEach(btn => {
             if (!speaking) {
               btn.classList.remove('playing');
-              btn.innerHTML = '<span>🔊</span> <span>JARVIS Voice</span>';
+              btn.innerHTML = '<span>🔊</span> <span>Listen</span>';
             }
           });
           const heroWave = document.querySelector('.robot-speech-bar .audio-wave');
@@ -6410,6 +6410,72 @@
 
       window.__scrollChat = scrollChatToBottom;
 
+      
+      function checkAndSyncOrderToDashboard(content) {
+        if (!content) return;
+        const orderMatch = content.match(/Order ID:\*?\*?\s*`?#?(ORD-[0-9A-Z]+|DOM-[0-9A-Z]+|AMZN-[0-9A-Z]+)`?/i);
+        if (orderMatch) {
+          const orderId = '#' + orderMatch[1].replace('#', '');
+          const platformMatch = content.match(/Platform:\*?\*?\s*([A-Za-z0-9' ]+)/i);
+          const platform = platformMatch ? platformMatch[1].trim() : 'Merchant Channel';
+          const itemMatch = content.match(/Item(?:s)?:\*?\*?\s*([^\n\r]+)/i);
+          const item = itemMatch ? itemMatch[1].replace(/\(Qty:.*?\)/, '').trim() : 'Confirmed Order';
+          const totalMatch = content.match(/Total(?: Paid)?:\*?\*?\s*([^\n\r]+)/i);
+          const total = totalMatch ? totalMatch[1].trim() : 'Verified Payment';
+          
+          const tabOrders = $('tab-orders');
+          if (tabOrders) {
+            const existing = tabOrders.querySelector(`[data-order-id="${orderId}"]`);
+            if (!existing) {
+              const card = document.createElement('div');
+              card.className = 'order-manage-card';
+              card.setAttribute('data-order-id', orderId);
+              card.style.borderLeft = '4px solid #10b981';
+              card.innerHTML = `
+                <div class="order-card-top">
+                  <div style="display:flex;align-items:center;gap:8px">
+                    <span class="merchant-tag merchant-dominos" style="background:#ecfdf5;color:#059669;border-color:#a7f3d0">${platform}</span>
+                    <strong style="font-size:13px;color:#0f172a">${orderId}</strong>
+                  </div>
+                  <span class="order-status-badge status-transit" style="background:#ecfdf5;color:#059669;border-color:#a7f3d0">
+                    <span style="width:6px;height:6px;border-radius:50%;background:#10b981"></span>
+                    <span>Order Confirmed · Transmitted to Merchant</span>
+                  </span>
+                </div>
+                <div class="order-details-row">
+                  <div>
+                    <strong style="display:block;font-size:13px;color:#0f172a">${item}</strong>
+                    <span style="font-size:11.5px;color:#64748b">Live Autonomous Ledger Entry</span>
+                  </div>
+                  <div>
+                    <span style="display:block;font-size:11px;color:#64748b">Total Paid</span>
+                    <strong style="font-size:12.5px;color:#0f172a">${total}</strong>
+                  </div>
+                  <div>
+                    <span style="display:block;font-size:11px;color:#64748b">Live Status</span>
+                    <span style="font-size:12px;color:#059669;font-weight:600">Dispatched</span>
+                  </div>
+                </div>
+                <div class="order-actions-bar">
+                  <button type="button" class="btn-portal-action primary" onclick="closeAccount(); window.sendSuggestedPrompt && window.sendSuggestedPrompt('Track order ${orderId}')">
+                    <span>📡</span> <span>Live Telemetry GPS</span>
+                  </button>
+                  <button type="button" class="btn-portal-action" onclick="closeAccount(); window.sendSuggestedPrompt && window.sendSuggestedPrompt('I want to return order ${orderId} because it arrived damaged')">
+                    <span>↩️</span> <span>Request Return / Refund</span>
+                  </button>
+                </div>
+              `;
+              const firstCard = tabOrders.querySelector('.order-manage-card');
+              if (firstCard) {
+                tabOrders.insertBefore(card, firstCard);
+              } else {
+                tabOrders.appendChild(card);
+              }
+            }
+          }
+        }
+      }
+
       function appendMessage(role, content, time = formatTime()) {
         const stream = $('chat-stream');
         const group = document.createElement('div');
@@ -6440,8 +6506,8 @@
           const replayBtn = document.createElement('button');
           replayBtn.type = 'button';
           replayBtn.className = 'btn-replay-voice';
-          replayBtn.title = 'Replay with authentic High-Fidelity Audio';
-          replayBtn.innerHTML = '<span>🔊</span> <span>JARVIS Voice</span>';
+          replayBtn.title = 'Listen to audio briefing';
+          replayBtn.innerHTML = '<span>🔊</span> <span>Listen</span>';
           replayBtn.onclick = (e) => {
             e.stopPropagation();
             if (replayBtn.classList.contains('playing')) {
@@ -7143,6 +7209,7 @@
             const lastMsg = state.messages[state.messages.length - 1];
             if (lastMsg.role === 'assistant') {
               speakText(lastMsg.content);
+              checkAndSyncOrderToDashboard(lastMsg.content);
             }
           }
 
